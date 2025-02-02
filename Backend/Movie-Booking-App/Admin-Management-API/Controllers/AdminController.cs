@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Admin_Management_API.Models;
+using Admin_Management_API.Models.Admin_Management_API.Models;
 
 namespace Admin_Management_API.Controllers
 {
@@ -9,10 +10,15 @@ namespace Admin_Management_API.Controllers
     public class AdminController : ControllerBase
     {
         private readonly P18MoviebookingsystemContext _context;
+        private readonly string _posterDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "posters");
 
         public AdminController(P18MoviebookingsystemContext context)
         {
             _context = context;
+            if (!Directory.Exists(_posterDirectory))
+            {
+                Directory.CreateDirectory(_posterDirectory);
+            }
         }
 
         // Movie Management
@@ -23,12 +29,91 @@ namespace Admin_Management_API.Controllers
             return await _context.Movies.ToListAsync();
         }
 
-        [HttpPost("movies")]
-        public async Task<ActionResult<Movie>> PostMovie(Movie movie)
+        [HttpGet("movies/{id}")]
+        public async Task<IActionResult> GetMovie(int id)
         {
-            _context.Movies.Add(movie);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetMovies), new { id = movie.MovieId }, movie);
+            var movie = await _context.Movies.FindAsync(id);
+
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            var imageUrl = movie.MoviePoster != null
+                ? $"{Request.Scheme}://{Request.Host}{movie.MoviePoster}" // Full URL to the poster
+                : null;
+
+            return Ok(new
+            {
+                movie.MovieId,
+                movie.MovieName,
+                movie.MovieDescription,
+                movie.MovieDuration,
+                movie.MovieReleaseDate,
+                movie.MovieLanguage,
+                MoviePoster = imageUrl, // Full URL for the poster
+                movie.MovieGenre
+            });
+        }
+
+
+        [HttpPost("add-movie")]
+        public async Task<IActionResult> PostMovie([FromForm] MovieDTO movieDto) // Accepts Form-Data
+        {
+            if (movieDto == null)
+            {
+                return BadRequest("Invalid movie data.");
+            }
+
+            try
+            {
+                string? posterPath = null;
+
+                // Handle File Upload
+                if (movieDto.PosterFile != null)
+                {
+                    var uploadsFolder = Path.Combine("wwwroot", "uploads");
+                    Directory.CreateDirectory(uploadsFolder); // Ensure the folder exists
+
+                    string uniqueFileName = $"{Guid.NewGuid()}_{movieDto.PosterFile.FileName}";
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await movieDto.PosterFile.CopyToAsync(stream);
+                    }
+
+                    posterPath = $"/uploads/{uniqueFileName}"; // Relative path for storing in DB
+                }
+                else if (!string.IsNullOrEmpty(movieDto.PosterUrl))
+                {
+                    posterPath = movieDto.PosterUrl; // Use the provided URL
+                }
+
+                var movie = new Movie
+                {
+                    MovieName = movieDto.MovieName,
+                    MovieDescription = movieDto.MovieDescription,
+                    MovieDuration = TimeOnly.Parse(movieDto.MovieDuration),
+                    MovieReleaseDate = DateOnly.Parse(movieDto.MovieReleaseDate),
+                    MovieLanguage = movieDto.MovieLanguage,
+                    MovieGenre = movieDto.MovieGenre,
+                    MoviePoster = posterPath // Save either uploaded file path or URL
+                };
+
+                _context.Movies.Add(movie);
+                await _context.SaveChangesAsync();
+
+                return CreatedAtAction(nameof(GetMovie), new { id = movie.MovieId }, movie);
+            }
+            catch (FormatException ex)
+            {
+                return BadRequest($"Invalid Date/Time format: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.InnerException?.Message ?? ex.Message}");
+            }
         }
 
         [HttpPut("movies/{id}")]

@@ -1,25 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Admin_Management_API.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace Admin_Management_API.Models;
-
-public partial class Show
+public class Show
 {
-    public int ShowId { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ShowId { get; set; } 
 
-    public int MovieId { get; set; }
+    [Required]
+    public DateTime ShowDate { get; set; }
 
-    public int ScreenId { get; set; }
+    [Required]
+    public TimeSpan ShowTime { get; set; }
 
-    public DateOnly ShowDate { get; set; }
-
-    public TimeOnly ShowTime { get; set; }
-
+    [Required]
     public decimal ShowPrice { get; set; }
 
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+    [Required]
+    public int MovieId { get; set; }
 
-    public virtual Movie Movie { get; set; } = null!;
+    public virtual Movie? Movie { get; set; }  // Make nullable
 
-    public virtual Screen Screen { get; set; } = null!;
+    [Required]
+    public int ScreenId { get; set; }
+
+    public virtual Screen? Screen { get; set; } // Make nullable
+
+    public virtual ICollection<Booking>? Bookings { get; set; } = new List<Booking>();
 }

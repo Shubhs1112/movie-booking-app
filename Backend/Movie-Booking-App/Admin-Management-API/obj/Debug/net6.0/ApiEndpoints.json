@@ -1,6 +1,57 @@
 [
   {
     "ContainingType": "Admin_Management_API.Controllers.AdminController",
+    "Method": "PostMovie",
+    "RelativePath": "api/Admin/add-movie",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MovieName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieDuration",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieReleaseDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieLanguage",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PosterFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "PosterUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieGenre",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Admin_Management_API.Controllers.AdminController",
     "Method": "GetBookings",
     "RelativePath": "api/Admin/bookings",
     "HttpMethod": "GET",
@@ -83,29 +134,19 @@
   },
   {
     "ContainingType": "Admin_Management_API.Controllers.AdminController",
-    "Method": "PostMovie",
-    "RelativePath": "api/Admin/movies",
-    "HttpMethod": "POST",
+    "Method": "GetMovie",
+    "RelativePath": "api/Admin/movies/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "movie",
-        "Type": "Admin_Management_API.Models.Movie",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Admin_Management_API.Models.Movie",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Admin_Management_API.Controllers.AdminController",
@@ -236,7 +277,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Admin_Management_API.Models.Show, Admin-Management-API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Show, Admin-Management-API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -256,13 +297,13 @@
     "Parameters": [
       {
         "Name": "show",
-        "Type": "Admin_Management_API.Models.Show",
+        "Type": "Show",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Admin_Management_API.Models.Show",
+        "Type": "Show",
         "MediaTypes": [
           "text/plain",
           "application/json",

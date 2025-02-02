@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\movies\\swades.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.webp",
+      "PackagePath": "staticwebassets\\uploads\\movies\\swades.webp"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Admin-Management-API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Admin-Management-API.props",
+      "PackagePath": "build\\Admin-Management-API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Admin-Management-API.props",
+      "PackagePath": "buildMultiTargeting\\Admin-Management-API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Admin-Management-API.props",
+      "PackagePath": "buildTransitive\\Admin-Management-API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

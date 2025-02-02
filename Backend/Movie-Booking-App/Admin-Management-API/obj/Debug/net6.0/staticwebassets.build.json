@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "Co6Mk9K31pte0fT3wRSX5ptBVAHm1didD92oBQZSFEY=",
+  "Hash": "612dLB0tB5pxQViHXivQAh7keS7fViywWt3nehavu+A=",
   "Source": "Admin-Management-API",
   "BasePath": "_content/Admin-Management-API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Admin-Management-API\\wwwroot",
+      "Source": "Admin-Management-API",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.jpeg",
+      "SourceId": "Admin-Management-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "RelativePath": "uploads/movies/swades.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movies\\swades.jpeg"
+    },
+    {
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.webp",
+      "SourceId": "Admin-Management-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "RelativePath": "uploads/movies/swades.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\movies\\swades.webp"
+    }
+  ]
 }

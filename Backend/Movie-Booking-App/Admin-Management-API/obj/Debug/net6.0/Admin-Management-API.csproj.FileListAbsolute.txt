@@ -288,3 +288,6 @@ C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-
 C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\obj\Debug\net6.0\Admin-Management-API.pdb
 C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\obj\Debug\net6.0\Admin-Management-API.genruntimeconfig.cache
 C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\obj\Debug\net6.0\ref\Admin-Management-API.dll
+C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\bin\Debug\net6.0\Admin-Management-API.staticwebassets.runtime.json
+C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Shubham K\Advanced Java\CDAC PROJECT\movie-booking-app\Backend\Movie-Booking-App\Admin-Management-API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
