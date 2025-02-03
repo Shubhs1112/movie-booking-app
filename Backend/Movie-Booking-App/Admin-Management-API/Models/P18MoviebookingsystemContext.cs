@@ -93,9 +93,6 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(50)
                 .HasColumnName("category_name");
-            entity.Property(e => e.Price)
-                .HasPrecision(10, 2)
-                .HasColumnName("price");
         });
 
         modelBuilder.Entity<Movie>(entity =>
@@ -195,9 +192,6 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.Property(e => e.MovieId).HasColumnName("movie_id");
             entity.Property(e => e.ScreenId).HasColumnName("screen_id");
             entity.Property(e => e.ShowDate).HasColumnName("show_date");
-            entity.Property(e => e.ShowPrice)
-                .HasPrecision(10, 2)
-                .HasColumnName("show_price");
             entity.Property(e => e.ShowTime)
                 .HasColumnType("time")
                 .HasColumnName("show_time");

@@ -1,12 +1,24 @@
 {
   "Files": [
     {
-      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\movies\\swades.jpeg"
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\04890f0b-1ee6-4b38-b844-07703a62cbd1_tarzan.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\04890f0b-1ee6-4b38-b844-07703a62cbd1_tarzan.jpeg"
     },
     {
-      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.webp",
-      "PackagePath": "staticwebassets\\uploads\\movies\\swades.webp"
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\e44e7021-3d65-45ba-93b6-04952c15ece0_pachadlela.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\e44e7021-3d65-45ba-93b6-04952c15ece0_pachadlela.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Admin-Management-API.Microsoft.AspNetCore.StaticWebAssets.props",

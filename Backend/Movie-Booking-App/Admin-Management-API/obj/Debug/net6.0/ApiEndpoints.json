@@ -52,6 +52,22 @@
   },
   {
     "ContainingType": "Admin_Management_API.Controllers.AdminController",
+    "Method": "PostShow",
+    "RelativePath": "api/Admin/add-show",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "showDto",
+        "Type": "Admin_Management_API.Models.ShowDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Admin_Management_API.Controllers.AdminController",
     "Method": "GetBookings",
     "RelativePath": "api/Admin/bookings",
     "HttpMethod": "GET",
@@ -114,6 +130,16 @@
   },
   {
     "ContainingType": "Admin_Management_API.Controllers.AdminController",
+    "Method": "GetCurrentShows",
+    "RelativePath": "api/Admin/current-shows",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Admin_Management_API.Controllers.AdminController",
     "Method": "GetMovies",
     "RelativePath": "api/Admin/movies",
     "HttpMethod": "GET",
@@ -143,27 +169,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Admin_Management_API.Controllers.AdminController",
-    "Method": "PutMovie",
-    "RelativePath": "api/Admin/movies/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "movie",
-        "Type": "Admin_Management_API.Models.Movie",
         "IsRequired": true
       }
     ],
@@ -325,6 +330,62 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Admin_Management_API.Controllers.AdminController",
+    "Method": "PutMovie",
+    "RelativePath": "api/Admin/update-movie/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "MovieName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieDescription",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieDuration",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieReleaseDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieLanguage",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PosterFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "PosterUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieGenre",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

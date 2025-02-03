@@ -6,16 +6,13 @@ public class Show
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ShowId { get; set; } 
+    public int ShowId { get; set; }
 
     [Required]
     public DateTime ShowDate { get; set; }
 
     [Required]
     public TimeSpan ShowTime { get; set; }
-
-    [Required]
-    public decimal ShowPrice { get; set; }
 
     [Required]
     public int MovieId { get; set; }
@@ -29,3 +26,4 @@ public class Show
 
     public virtual ICollection<Booking>? Bookings { get; set; } = new List<Booking>();
 }
+

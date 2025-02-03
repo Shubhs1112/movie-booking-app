@@ -4,16 +4,9 @@ namespace Admin_Management_API.Models
 {
     public class ShowDTO
     {
-        [Required]
+        public int MovieId { get; set; }
         public DateTime ShowDate { get; set; }
-
-        [Required]
-        public TimeSpan ShowTime { get; set; }
-
-        [Required]
-        public decimal ShowPrice { get; set; }
-
-        [Required]
+        public string ShowTime { get; set; }
         public int ScreenId { get; set; }
     }
 

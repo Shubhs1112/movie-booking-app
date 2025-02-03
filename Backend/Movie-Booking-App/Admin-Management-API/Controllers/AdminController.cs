@@ -21,42 +21,14 @@ namespace Admin_Management_API.Controllers
             }
         }
 
-        // Movie Management
-
+        // Get All movies
         [HttpGet("movies")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
         {
             return await _context.Movies.ToListAsync();
         }
 
-        [HttpGet("movies/{id}")]
-        public async Task<IActionResult> GetMovie(int id)
-        {
-            var movie = await _context.Movies.FindAsync(id);
-
-            if (movie == null)
-            {
-                return NotFound();
-            }
-
-            var imageUrl = movie.MoviePoster != null
-                ? $"{Request.Scheme}://{Request.Host}{movie.MoviePoster}" // Full URL to the poster
-                : null;
-
-            return Ok(new
-            {
-                movie.MovieId,
-                movie.MovieName,
-                movie.MovieDescription,
-                movie.MovieDuration,
-                movie.MovieReleaseDate,
-                movie.MovieLanguage,
-                MoviePoster = imageUrl, // Full URL for the poster
-                movie.MovieGenre
-            });
-        }
-
-
+        //Add-Movie
         [HttpPost("add-movie")]
         public async Task<IActionResult> PostMovie([FromForm] MovieDTO movieDto) // Accepts Form-Data
         {
@@ -116,31 +88,204 @@ namespace Admin_Management_API.Controllers
             }
         }
 
-        [HttpPut("movies/{id}")]
-        public async Task<IActionResult> PutMovie(int id, Movie movie)
+        //Add Show
+        [HttpPost("add-show")]
+        public async Task<IActionResult> PostShow([FromBody] ShowDTO showDto)
         {
-            if (id != movie.MovieId)
+            // Validate that the ShowTime is in the correct format
+            if (!TimeSpan.TryParse(showDto.ShowTime, out var showTime))
             {
-                return BadRequest();
+                return BadRequest(new { message = "Invalid show time format" });
             }
 
-            _context.Entry(movie).State = EntityState.Modified;
+            // Create a new Show object using the validated data from the DTO
+            var show = new Show
+            {
+                ShowDate = showDto.ShowDate,
+                ShowTime = showTime,  // Now this is of type TimeSpan
+                MovieId = showDto.MovieId,
+                ScreenId = showDto.ScreenId
+            };
+
+            // Save the show object to the database (assuming _context is your DbContext)
+            try
+            {
+                _context.Shows.Add(show);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "Show added successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = $"Error adding show: {ex.Message}" });
+            }
+        }
+
+        //Get Current Shows 
+        [HttpGet("current-shows")]
+        public async Task<IActionResult> GetCurrentShows()
+        {
+            var today = DateTime.Today; // Keep it as DateTime to match EF Core behavior
+
+            var shows = await _context.Shows
+                .Where(s => s.ShowDate >= today && s.ShowTime >= TimeSpan.Zero) // Use TimeSpan.Zero if ShowTime is TimeSpan
+                .Include(s => s.Movie)
+                .Include(s => s.Screen)
+                .Select(s => new
+                {
+                    s.ShowId,
+                    s.ShowDate,
+                    ShowTime = s.ShowTime.ToString(@"hh\:mm"), // Format TimeSpan as HH:mm
+                    Movie = new
+                    {
+                        s.Movie.MovieId,
+                        s.Movie.MovieName,
+                        s.Movie.MovieDuration,
+                        s.Movie.MovieDescription,
+                        s.Movie.MovieLanguage,
+                        s.Movie.MovieGenre,
+                        MoviePoster = s.Movie.MoviePoster != null
+                            ? $"{Request.Scheme}://{Request.Host}{s.Movie.MoviePoster}"
+                            : null
+                    },
+                    Screen = new
+                    {
+                        s.Screen.ScreenId,
+                        s.Screen.Description
+                    }
+                })
+                .ToListAsync();
+
+            return Ok(shows);
+        }
+
+        //Update Movie
+        [HttpPut("update-movie/{id}")]
+        public async Task<IActionResult> PutMovie(int id, [FromForm] MovieDTO movieDto)
+        {
+            if (movieDto == null)
+            {
+                return BadRequest("Invalid movie data.");
+            }
+
+            // Find the existing movie by ID
+            var movie = await _context.Movies.FindAsync(id);
+
+            if (movie == null)
+            {
+                return NotFound(); // Movie not found with the given ID
+            }
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieExists(id))
+                // Handle File Upload (if a new poster is uploaded)
+                string? posterPath = movie.MoviePoster; // Keep the current poster path if no new file is uploaded
+
+                if (movieDto.PosterFile != null)
                 {
-                    return NotFound();
+                    var uploadsFolder = Path.Combine("wwwroot", "uploads");
+                    Directory.CreateDirectory(uploadsFolder); // Ensure the folder exists
+
+                    string uniqueFileName = $"{Guid.NewGuid()}_{movieDto.PosterFile.FileName}";
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await movieDto.PosterFile.CopyToAsync(stream);
+                    }
+
+                    posterPath = $"/uploads/{uniqueFileName}"; // New poster file path to be saved in DB
                 }
-                throw;
+                else if (!string.IsNullOrEmpty(movieDto.PosterUrl))
+                {
+                    posterPath = movieDto.PosterUrl; // If a new poster URL is provided, use it
+                }
+
+                // Update the movie properties
+                movie.MovieName = movieDto.MovieName;
+                movie.MovieDescription = movieDto.MovieDescription;
+                movie.MovieDuration = TimeOnly.Parse(movieDto.MovieDuration); // Parse MovieDuration from string (HH:mm:ss)
+                movie.MovieReleaseDate = DateOnly.Parse(movieDto.MovieReleaseDate); // Parse MovieReleaseDate from string (yyyy-MM-dd)
+                movie.MovieLanguage = movieDto.MovieLanguage;
+                movie.MovieGenre = movieDto.MovieGenre;
+                movie.MoviePoster = posterPath; // Update the poster path (new or old)
+
+                // Mark the entity as modified
+                _context.Entry(movie).State = EntityState.Modified;
+
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+
+                return NoContent(); // Return HTTP 204 No Content (success)
+            }
+            catch (FormatException ex)
+            {
+                return BadRequest($"Invalid Date/Time format: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.InnerException?.Message ?? ex.Message}");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //[HttpGet("category")]
+        //public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        //{
+        //    return await _context.Categories.ToListAsync();
+        //}
+
+        [HttpGet("movies/{id}")]
+        public async Task<IActionResult> GetMovie(int id)
+        {
+            var movie = await _context.Movies.FindAsync(id);
+
+            if (movie == null)
+            {
+                return NotFound();
             }
 
-            return NoContent();
+            var imageUrl = movie.MoviePoster != null
+                ? $"{Request.Scheme}://{Request.Host}{movie.MoviePoster}" // Full URL to the poster
+                : null;
+
+            return Ok(new
+            {
+                movie.MovieId,
+                movie.MovieName,
+                movie.MovieDescription,
+                movie.MovieDuration,
+                movie.MovieReleaseDate,
+                movie.MovieLanguage,
+                MoviePoster = imageUrl, // Full URL for the poster
+                movie.MovieGenre
+            });
         }
+
+
+        
+
+        
 
         [HttpDelete("movies/{id}")]
         public async Task<IActionResult> DeleteMovie(int id)

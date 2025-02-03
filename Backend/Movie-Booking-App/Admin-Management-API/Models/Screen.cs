@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Admin_Management_API.Models;
 
 public partial class Screen
 {
     public int ScreenId { get; set; }
-
     public int ScreenNumber { get; set; }
 
     public string Description { get; set; } = null!;

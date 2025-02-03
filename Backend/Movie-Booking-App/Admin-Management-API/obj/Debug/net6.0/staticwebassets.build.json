@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "612dLB0tB5pxQViHXivQAh7keS7fViywWt3nehavu+A=",
+  "Hash": "Mprt/0TDCzzC1qwxsSeVejzoVfAjxYnCsKCO0asEQQY=",
   "Source": "Admin-Management-API",
   "BasePath": "_content/Admin-Management-API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.jpeg",
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\04890f0b-1ee6-4b38-b844-07703a62cbd1_tarzan.jpeg",
       "SourceId": "Admin-Management-API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
       "BasePath": "_content/Admin-Management-API",
-      "RelativePath": "uploads/movies/swades.jpeg",
+      "RelativePath": "uploads/04890f0b-1ee6-4b38-b844-07703a62cbd1_tarzan.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -33,15 +33,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\movies\\swades.jpeg"
+      "OriginalItemSpec": "wwwroot\\uploads\\04890f0b-1ee6-4b38-b844-07703a62cbd1_tarzan.jpeg"
     },
     {
-      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\movies\\swades.webp",
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg",
       "SourceId": "Admin-Management-API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
       "BasePath": "_content/Admin-Management-API",
-      "RelativePath": "uploads/movies/swades.webp",
+      "RelativePath": "uploads/5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -52,7 +52,64 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\movies\\swades.webp"
+      "OriginalItemSpec": "wwwroot\\uploads\\5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg"
+    },
+    {
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg",
+      "SourceId": "Admin-Management-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "RelativePath": "uploads/828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg"
+    },
+    {
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\e44e7021-3d65-45ba-93b6-04952c15ece0_pachadlela.jpeg",
+      "SourceId": "Admin-Management-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "RelativePath": "uploads/e44e7021-3d65-45ba-93b6-04952c15ece0_pachadlela.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e44e7021-3d65-45ba-93b6-04952c15ece0_pachadlela.jpeg"
+    },
+    {
+      "Identity": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg",
+      "SourceId": "Admin-Management-API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\",
+      "BasePath": "_content/Admin-Management-API",
+      "RelativePath": "uploads/e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg"
     }
   ]
 }
