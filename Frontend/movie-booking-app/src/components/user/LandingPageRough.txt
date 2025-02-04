@@ -1,0 +1,48 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../redux/authSlice';
+import Nav from './Nav'; // Import the Nav component
+import '../../resources/LandingPage.css';
+
+const LandingPage = () => {
+    const dispatch = useDispatch();
+
+    // Access the Redux state
+    const { isAuthenticated, user } = useSelector((state) => state.auth);
+
+    // Logout handler
+    const handleLogout = () => {
+        dispatch(logout());
+    };
+
+    return (
+        <div className="landing-container">
+            {/* Include the Nav component */}
+            <Nav
+                isAuthenticated={isAuthenticated}
+                user={user}
+                handleLogout={handleLogout}
+            />
+
+            <header className="landing-header">
+                <h1>Welcome to Book Karo</h1>
+                <p>Your one-stop platform to book your favorite movies</p>
+            </header>
+
+            <div className="landing-content">
+                <p className="landing-description">
+                    Discover a wide variety of movies and book your tickets in just a few clicks. Enjoy seamless movie experiences right from the comfort of your home.
+                </p>
+                <button className="cta-button">
+                    Book Now
+                </button>
+            </div>
+
+            <footer className="landing-footer">
+                <p>&copy; 2025 Movie Booking. All Rights Reserved.</p>
+            </footer>
+        </div>
+    );
+};
+
+export default LandingPage;
