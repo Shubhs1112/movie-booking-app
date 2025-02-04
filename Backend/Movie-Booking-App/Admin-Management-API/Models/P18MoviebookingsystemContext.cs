@@ -19,7 +19,11 @@ public partial class P18MoviebookingsystemContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
+
     public virtual DbSet<Movie> Movies { get; set; }
+
+    public virtual DbSet<Review> Reviews { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
@@ -53,6 +57,8 @@ public partial class P18MoviebookingsystemContext : DbContext
 
             entity.HasIndex(e => e.UserId, "booking_ibfk_3");
 
+            entity.HasIndex(e => e.CategoryId, "category_id4343_idx");
+
             entity.Property(e => e.BookingId).HasColumnName("booking_id");
             entity.Property(e => e.BookingAmount)
                 .HasPrecision(10, 2)
@@ -63,9 +69,14 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.Property(e => e.BookingTime)
                 .HasColumnType("time")
                 .HasColumnName("booking_time");
+            entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.SeatId).HasColumnName("seat_id");
             entity.Property(e => e.ShowId).HasColumnName("show_id");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("category_id4343");
 
             entity.HasOne(d => d.Seat).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.SeatId)
@@ -93,6 +104,20 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.Property(e => e.CategoryName)
                 .HasMaxLength(50)
                 .HasColumnName("category_name");
+            entity.Property(e => e.MaxSeats).HasColumnName("max_seats");
+            entity.Property(e => e.Price)
+                .HasPrecision(10, 2)
+                .HasColumnName("price");
+        });
+
+        modelBuilder.Entity<Efmigrationshistory>(entity =>
+        {
+            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
+
+            entity.ToTable("__efmigrationshistory");
+
+            entity.Property(e => e.MigrationId).HasMaxLength(150);
+            entity.Property(e => e.ProductVersion).HasMaxLength(32);
         });
 
         modelBuilder.Entity<Movie>(entity =>
@@ -108,13 +133,49 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.Property(e => e.MovieDuration)
                 .HasColumnType("time")
                 .HasColumnName("movie_duration");
+            entity.Property(e => e.MovieGenre)
+                .HasMaxLength(45)
+                .HasColumnName("movie_genre");
             entity.Property(e => e.MovieLanguage)
                 .HasMaxLength(50)
                 .HasColumnName("movie_language");
             entity.Property(e => e.MovieName)
                 .HasMaxLength(255)
                 .HasColumnName("movie_name");
+            entity.Property(e => e.MoviePoster)
+                .HasMaxLength(255)
+                .HasColumnName("movie_poster");
             entity.Property(e => e.MovieReleaseDate).HasColumnName("movie_release_date");
+        });
+
+        modelBuilder.Entity<Review>(entity =>
+        {
+            entity.HasKey(e => e.ReviewId).HasName("PRIMARY");
+
+            entity.ToTable("reviews");
+
+            entity.HasIndex(e => e.MovieId, "movie_id_idx");
+
+            entity.HasIndex(e => e.ReviewId, "review_id_UNIQUE").IsUnique();
+
+            entity.HasIndex(e => e.UserId, "user_id_idx");
+
+            entity.Property(e => e.ReviewId).HasColumnName("review_id");
+            entity.Property(e => e.MovieId).HasColumnName("movie_id");
+            entity.Property(e => e.Rating).HasColumnName("rating");
+            entity.Property(e => e.ReviewMsg)
+                .HasMaxLength(255)
+                .HasColumnName("review_msg");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.Movie).WithMany(p => p.Reviews)
+                .HasForeignKey(d => d.MovieId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("movie_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Reviews)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("user_id");
         });
 
         modelBuilder.Entity<Role>(entity =>

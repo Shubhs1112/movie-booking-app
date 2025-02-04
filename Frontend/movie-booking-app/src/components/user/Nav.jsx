@@ -1,47 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-const Nav = ({ isAuthenticated, user, handleLogout }) => {
+const Navigation = ({ isAuthenticated, user, handleLogout }) => {
     return (
-        <nav className="navbar">
-            <div className="navbar-brand">
-                <h2>Book Karo</h2>
-            </div>
-            <ul className="navbar-links">
-                {isAuthenticated && (
-                    <li>
-                        <h1 className="text-white">Welcome {user}</h1>
-                    </li>
-                )}
-                <li>
-                    <Link to="/" className="navbar-link">Home</Link>
-                </li>
-                <li>
-                    <Link to="/movies" className="navbar-link">Movies</Link>
-                </li>
-                <li>
-                    <Link to="/book" className="navbar-link">Book a Movie</Link>
-                </li>
-                {isAuthenticated && (
-                    <li>
-                        <Link to="/updateProfile" className="navbar-link">Profile</Link>
-                    </li>
-                )}
-                {isAuthenticated ? (
-                    <li>
-                        <button onClick={handleLogout} className="navbar-link logout-button">
-                            Logout
-                        </button>
-                    </li>
-                ) : (
-                    <li>
-                        <Link to="/login" className="navbar-link">Login</Link>
-                    </li>
-                )}
-            </ul>
-        </nav>
+        <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
+            <Container>
+                <Navbar.Brand>Book Karo</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ms-auto">
+                        {isAuthenticated && (
+                            <Navbar.Text className="text-white me-3">Welcome {user} :)</Navbar.Text>
+                        )}
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
+                        <Nav.Link as={Link} to="/book">Book a Movie</Nav.Link>
+                        {isAuthenticated && (
+                            <Nav.Link as={Link} to="/updateProfile">Profile</Nav.Link>
+                        )}
+                        {isAuthenticated ? (
+                            <Button variant="outline-light" onClick={handleLogout} className="ms-2">
+                                Logout
+                            </Button>
+                        ) : (
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                        )}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 
-export default Nav;
+export default Navigation;

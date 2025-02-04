@@ -19,6 +19,10 @@ public partial class Booking
 
     public decimal BookingAmount { get; set; }
 
+    public int? CategoryId { get; set; }
+
+    public virtual Category? Category { get; set; }
+
     public virtual Seat Seat { get; set; } = null!;
 
     public virtual Show Show { get; set; } = null!;

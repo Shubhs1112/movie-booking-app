@@ -11,5 +11,9 @@ public partial class Category
 
     public decimal Price { get; set; }
 
+    public int? MaxSeats { get; set; }
+
+    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+
     public virtual ICollection<Screen> Screens { get; set; } = new List<Screen>();
 }

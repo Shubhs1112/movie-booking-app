@@ -1,35 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Admin_Management_API.Models
+namespace Admin_Management_API.Models;
+
+public partial class Movie
 {
-    public class Movie
-    {
-        public int MovieId { get; set; }
+    public int MovieId { get; set; }
 
-        [Required]
-        public string MovieName { get; set; } = null!;
+    public string MovieName { get; set; } = null!;
 
-        [Required]
-        public string MovieDescription { get; set; } = null!;
+    public string MovieDescription { get; set; } = null!;
 
-        public TimeOnly MovieDuration { get; set; }  
+    public TimeOnly MovieDuration { get; set; }
 
-        public DateOnly MovieReleaseDate { get; set; }  
+    public DateOnly MovieReleaseDate { get; set; }
 
-        [Required]
-        public string MovieLanguage { get; set; } = null!;
+    public string MovieLanguage { get; set; } = null!;
 
-        [Required]
-        [Column("movie_poster")]
-        public string MoviePoster { get; set; }
+    public string MoviePoster { get; set; } = null!;
 
-        [Required]
-        [Column("movie_genre")]
-        public string MovieGenre { get; set; }
+    public string MovieGenre { get; set; } = null!;
 
-        public virtual ICollection<Show> Shows { get; set; } = new List<Show>(); // Optional
-    }
+    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
+
+    public virtual ICollection<Show> Shows { get; set; } = new List<Show>();
 }

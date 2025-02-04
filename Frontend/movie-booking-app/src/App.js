@@ -13,11 +13,14 @@ import AddMovie from './components/admin/AddMovie';
 import AddShow from './components/admin/AddShow';
 import UpdateMovie from './components/admin/UpdateMovie';
 import UpdateShow from './components/admin/UpdateShow';
+import ManageReviews from './components/admin/ManageReviews';
 
 function App() {
   return (
       <BrowserRouter>
         <Routes>
+          
+          {/* Customer Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/user" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
@@ -26,13 +29,17 @@ function App() {
           <Route path="/updateProfile" element={<UpdateProfile />} />
           <Route path="/selectSeat" element={<SeatBooking />} />
 
+
+          {/* Admin Routes */}
           <Route path="/admin" element={<AdminLandingPage />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/admin/updateProfile" element={<AdminUpdateProfile />} />
           <Route path="/admin/add-movie" element={<AddMovie />} />
           <Route path="/admin/update-movie/:id" element={<UpdateMovie />} />      
           <Route path="/admin/add-show" element={<AddShow />} />
-          <Route path="/admin/update-show/:id" element={<UpdateShow />} />      
+          <Route path="/admin/update-show/:id" element={<UpdateShow />} />
+          <Route path="/admin/manage-reviews/:movieId" element={<ManageReviews />} />   
+
       </Routes>
       </BrowserRouter>
   );

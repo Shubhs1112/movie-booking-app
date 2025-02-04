@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaFilm } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import AdminNavbar from './AdminNavbar';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link for navigation
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch data from the API when the component mounts
@@ -30,13 +30,9 @@ const Movies = () => {
     fetchMovies();
   }, []);
 
-  // Functions for handling update and delete
-  const handleDelete = (movieId) => {
-    // Logic for deleting the movie
-    console.log(`Delete movie with ID: ${movieId}`);
-    // You can make an API call here to delete the movie from the database.
-    // After deletion, update the state to remove the movie from the UI.
-    setMovies(movies.filter(movie => movie.movieId !== movieId));
+  // Functions for handling 
+  const handleReviews = (movieId) => {
+    navigate(`/admin/manage-reviews/${movieId}`);
   };
 
   return (
@@ -68,26 +64,29 @@ const Movies = () => {
               {movies.length > 0 ? (
                 movies.map((movie) => (
                   <tr key={movie.movieId}>
-                    <td>{movie.movieName}</td>
+                    <td style={{ maxWidth: '130px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {movie.movieName}</td>
                     <td style={{ maxWidth: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {movie.movieDescription || 'N/A'}
                     </td>
                     <td>{movie.movieLanguage}</td>
                     <td>{movie.movieGenre || 'N/A'}</td>
-                    <td>{new Date(movie.movieReleaseDate).toLocaleDateString()}</td>
-                    <td>{movie.movieDuration || 'N/A'}</td>
                     <td>
+                        {new Date(movie.movieReleaseDate).toLocaleDateString()}</td>
+                    <td>{movie.movieDuration || 'N/A'}</td>
+                    <td style={{ maxWidth: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       <Link
                         to={`/admin/update-movie/${movie.movieId}`} // Link to the UpdateMovie component with movieId as parameter
                         className="btn btn-warning btn-sm mx-1"
                       >
-                        Edit
+                        Edit Movie
                       </Link>
+
                       <button
-                        className="btn btn-danger btn-sm mx-1"
-                        onClick={() => handleDelete(movie.movieId)}
+                        className="btn btn-warning btn-sm mx-1"
+                        onClick={() => handleReviews(movie.movieId)}
                       >
-                        Delete
+                        Manage Reviews
                       </button>
                     </td>
                   </tr>
