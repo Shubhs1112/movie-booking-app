@@ -14,20 +14,27 @@ import AddShow from './components/admin/AddShow';
 import UpdateMovie from './components/admin/UpdateMovie';
 import UpdateShow from './components/admin/UpdateShow';
 import ManageReviews from './components/admin/ManageReviews';
+import UserDashboard from './components/user/UserDashboard';
+import BookMovie from './components/user/BookMovie';
 
 function App() {
   return (
       <BrowserRouter>
         <Routes>
           
-          {/* Customer Routes */}
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/user" element={<LandingPage />} />
+          {/* Common Routes for Customer and Admin*/}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/updateProfile" element={<UpdateProfile />} />
-          <Route path="/selectSeat" element={<SeatBooking />} />
+
+
+          {/* Customer Routes */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/user/forgot-password" element={<ForgotPassword />} />
+          <Route path="/user/updateProfile" element={<UpdateProfile />} />
+          <Route path="/user/selectSeat" element={<SeatBooking />} />
+          <Route path="/user/book-movie/:movieId" element={<BookMovie />} />
+
 
 
           {/* Admin Routes */}

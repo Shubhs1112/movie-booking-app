@@ -37,7 +37,7 @@ const Login = () => {
                 let user = data;
                 dispatch(login(user.username));
 
-                if (user.role === 'Customer') navigate('/user');
+                if (user.role === 'Customer') navigate('/user-dashboard');
                 else navigate('/admin-dashboard');
             } else {
                 const errorData = await response.json();
