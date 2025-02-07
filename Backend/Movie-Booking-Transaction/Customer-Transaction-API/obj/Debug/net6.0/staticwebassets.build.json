@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zubpZUiQ9gh6Fb7XLhzDvgazRRgO7BFDVHlGWXGUhnY=",
+  "Source": "Customer-Transaction-API",
+  "BasePath": "_content/Customer-Transaction-API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

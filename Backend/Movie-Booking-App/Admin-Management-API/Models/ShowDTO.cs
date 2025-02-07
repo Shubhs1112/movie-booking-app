@@ -7,6 +7,7 @@ namespace Admin_Management_API.Models
         public int MovieId { get; set; }
         public DateTime ShowDate { get; set; }
         public string ShowTime { get; set; }
+        public DateTime ShowEndDate { get; set; }
         public int ScreenId { get; set; }
     }
 

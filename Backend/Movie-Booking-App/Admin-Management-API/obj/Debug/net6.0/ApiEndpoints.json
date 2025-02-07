@@ -46,6 +46,11 @@
         "Name": "MovieGenre",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "MovieTrailer",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -136,6 +141,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Admin_Management_API.Controllers.AdminController",
+    "Method": "GetShowsByMovieId",
+    "RelativePath": "api/Admin/current-shows/{movieId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "movieId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -482,6 +503,11 @@
       },
       {
         "Name": "MovieGenre",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MovieTrailer",
         "Type": "System.String",
         "IsRequired": false
       }

@@ -14,14 +14,10 @@ namespace Admin_Management_API
             //CORS
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowReactApp", policy =>
-                {
-                    // Allows CORS requests from React app running on port 3000
-                    policy.WithOrigins("http://localhost:3000")  // Replace with the URL of your React app
-                          .AllowAnyMethod()                     // Allow any HTTP method (GET, POST, etc.)
-                          .AllowAnyHeader();                    // Allow any headers
-                });
+                options.AddPolicy("AllowAll",
+                    policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -40,9 +36,6 @@ namespace Admin_Management_API
 
             var app = builder.Build();
 
-            // Use CORS middleware with the defined policy
-            app.UseCors("AllowReactApp");
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -50,13 +43,13 @@ namespace Admin_Management_API
                 app.UseSwaggerUI();
             }
 
+            // Middlewares
             app.UseHttpsRedirection();
-
+            app.UseCors("AllowAll");
+            app.UseStaticFiles();         // Enable serving static files
+            app.UseRouting();
             app.UseAuthorization();
-            app.UseStaticFiles(); // Enable static files to be served from the wwwroot folder
-
-
-            app.MapControllers();
+            app.MapControllers();         // Maps API endpoints
 
             app.Run();
         }

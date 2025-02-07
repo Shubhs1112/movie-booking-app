@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Admin_Management_API.Models;
 
@@ -20,6 +22,9 @@ public partial class Movie
     public string MoviePoster { get; set; } = null!;
 
     public string MovieGenre { get; set; } = null!;
+
+    [Column("movie_trailer")]
+    public string? MovieTrailer { get; set; }
 
     public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
 

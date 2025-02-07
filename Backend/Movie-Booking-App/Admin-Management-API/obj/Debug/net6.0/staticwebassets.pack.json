@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\uploads\\2fce893f-0a1d-49fc-9d10-2ea67ebd9207_pachadlela.jpeg"
     },
     {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\3dd7b44d-9b12-41ab-aa49-6cfea4adbb6a_darlings.webp",
+      "PackagePath": "staticwebassets\\uploads\\3dd7b44d-9b12-41ab-aa49-6cfea4adbb6a_darlings.webp"
+    },
+    {
       "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\530270d4-fdc5-406f-8894-14b991ef88d7_tarzan.jpeg",
       "PackagePath": "staticwebassets\\uploads\\530270d4-fdc5-406f-8894-14b991ef88d7_tarzan.jpeg"
     },
@@ -21,12 +25,28 @@
       "PackagePath": "staticwebassets\\uploads\\5b6a6cd8-e014-4b32-9dca-f2ef26262d8e_pachadlela.jpeg"
     },
     {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\6f935cde-2c27-431e-a768-9444334c4c0a_RRR.webp",
+      "PackagePath": "staticwebassets\\uploads\\6f935cde-2c27-431e-a768-9444334c4c0a_RRR.webp"
+    },
+    {
       "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\7e9d8a74-537b-46b8-88d7-7c52a96dc011_tarzan.jpeg",
       "PackagePath": "staticwebassets\\uploads\\7e9d8a74-537b-46b8-88d7-7c52a96dc011_tarzan.jpeg"
     },
     {
       "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg",
       "PackagePath": "staticwebassets\\uploads\\828912f5-b275-4bef-a3e5-702a6c4af8f8_tarzan.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\8791d1eb-b2dc-4dd5-8bbe-9f712889ef21_intersteller.webp",
+      "PackagePath": "staticwebassets\\uploads\\8791d1eb-b2dc-4dd5-8bbe-9f712889ef21_intersteller.webp"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\99e0017f-438f-4485-8c76-485a2263d31c_RRR.webp",
+      "PackagePath": "staticwebassets\\uploads\\99e0017f-438f-4485-8c76-485a2263d31c_RRR.webp"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\d098ffa0-71cd-4437-a62c-a4b7c0d49f2b_RRR.webp",
+      "PackagePath": "staticwebassets\\uploads\\d098ffa0-71cd-4437-a62c-a4b7c0d49f2b_RRR.webp"
     },
     {
       "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\da956ede-be1f-4c39-a5ef-930e46c958c1_pachadlela.jpeg",
@@ -47,6 +67,14 @@
     {
       "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg",
       "PackagePath": "staticwebassets\\uploads\\e8982c97-2c2c-4ae2-a752-5623bd1f30a4_pachadlela.jpeg"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\ee0ab420-c316-4dfd-ae7d-b7450815f3b6_mumbai pune mumbai.webp",
+      "PackagePath": "staticwebassets\\uploads\\ee0ab420-c316-4dfd-ae7d-b7450815f3b6_mumbai pune mumbai.webp"
+    },
+    {
+      "Id": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\wwwroot\\uploads\\f86e6780-c120-4c65-8baa-fc6acde07ce6_intersteller.webp",
+      "PackagePath": "staticwebassets\\uploads\\f86e6780-c120-4c65-8baa-fc6acde07ce6_intersteller.webp"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Admin-Management-API.Microsoft.AspNetCore.StaticWebAssets.props",

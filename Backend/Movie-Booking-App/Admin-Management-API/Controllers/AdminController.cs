@@ -70,6 +70,7 @@ namespace Admin_Management_API.Controllers
                     MovieReleaseDate = DateOnly.Parse(movieDto.MovieReleaseDate),
                     MovieLanguage = movieDto.MovieLanguage,
                     MovieGenre = movieDto.MovieGenre,
+                    MovieTrailer = movieDto.MovieTrailer,
                     MoviePoster = posterPath // Save either uploaded file path or URL
                 };
 
@@ -137,6 +138,7 @@ namespace Admin_Management_API.Controllers
                 movie.MovieReleaseDate = DateOnly.Parse(movieDto.MovieReleaseDate); // Parse MovieReleaseDate from string (yyyy-MM-dd)
                 movie.MovieLanguage = movieDto.MovieLanguage;
                 movie.MovieGenre = movieDto.MovieGenre;
+                movie.MovieTrailer = movieDto.MovieTrailer;
                 movie.MoviePoster = posterPath; // Update the poster path (new or old)
 
                 // Mark the entity as modified
@@ -171,6 +173,7 @@ namespace Admin_Management_API.Controllers
             var show = new Show
             {
                 ShowDate = showDto.ShowDate,
+                ShowEndDate = showDto.ShowEndDate,
                 ShowTime = showTime,  // Now this is of type TimeSpan
                 MovieId = showDto.MovieId,
                 ScreenId = showDto.ScreenId
@@ -288,6 +291,7 @@ namespace Admin_Management_API.Controllers
 
             // Update only the allowed fields
             existingShow.ShowDate = showDto.ShowDate;
+            existingShow.ShowEndDate = showDto.ShowEndDate;
             existingShow.ShowTime = showTime;  // Convert to TimeSpan
             existingShow.ScreenId = showDto.ScreenId;
 
@@ -340,16 +344,13 @@ namespace Admin_Management_API.Controllers
             return customers;
         }
 
-
-
-
-        //Get Reviews 
+        //Get all reviews 
         [HttpGet("GetReviewsWithUsers")]
         public async Task<ActionResult<IEnumerable<object>>> GetReviewsWithUsers()
         {
             var reviews = await _context.Reviews
                 .Include(r => r.User)  // Load User details
-                .Include(r => r.Movie) // (Optional) Load Movie details if needed
+                .Include(r => r.Movie) // Load Movie details
                 .Select(r => new
                 {
                     r.ReviewId,
@@ -357,6 +358,7 @@ namespace Admin_Management_API.Controllers
                     r.Rating,
                     r.MovieId,
                     r.UserId,
+                    MovieName = r.Movie.MovieName, // Include the movie name in the response
                     User = new
                     {
                         r.User.UserId,
@@ -368,6 +370,7 @@ namespace Admin_Management_API.Controllers
 
             return Ok(reviews);
         }
+
 
         // GET revies by ID {movieId}
         [HttpGet("GetReviewsByMovieId/{movieId}")]
@@ -425,62 +428,64 @@ namespace Admin_Management_API.Controllers
                 movie.MovieReleaseDate,
                 movie.MovieLanguage,
                 MoviePoster = imageUrl, // Full URL for the poster
-                movie.MovieGenre
+                movie.MovieGenre,
+                movie.MovieTrailer
             });
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //[HttpGet("category")]
-        //public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
-        //{
-        //    return await _context.Categories.ToListAsync();
-        //}
-
-        [HttpGet("movies/{id}")]
-        public async Task<IActionResult> GetMovie(int id)
+        //Get Shows by MovieID
+        [HttpGet("current-shows/{movieId}")]
+        public async Task<IActionResult> GetShowsByMovieId(int movieId)
         {
-            var movie = await _context.Movies.FindAsync(id);
+            var currentDate = DateOnly.FromDateTime(DateTime.Today);
 
-            if (movie == null)
+            var shows = await _context.Shows
+                .Where(s => s.MovieId == movieId && s.ShowDate.Date >= DateTime.Today) // Fetch only current & upcoming shows
+                .Include(s => s.Movie)
+                .Include(s => s.Screen)
+                .Select(s => new
+                {
+                    s.ShowId,
+                    s.ShowDate,
+                    s.ShowEndDate,
+                    ShowTime = s.ShowTime.ToString(@"hh\:mm"), // Format TimeSpan as HH:mm
+                    Movie = new
+                    {
+                        s.Movie.MovieId,
+                        s.Movie.MovieName,
+                        s.Movie.MovieDuration,
+                        s.Movie.MovieDescription,
+                        s.Movie.MovieLanguage,
+                        s.Movie.MovieGenre,
+                        MoviePoster = s.Movie.MoviePoster != null
+                            ? $"{Request.Scheme}://{Request.Host}{s.Movie.MoviePoster}"
+                            : null
+                    },
+                    Screen = new
+                    {
+                        s.Screen.ScreenId,
+                        s.Screen.Description
+                    }
+                })
+                .ToListAsync();
+
+            if (shows == null || !shows.Any())
             {
-                return NotFound();
+                return NotFound(new { message = "No current shows found for this movie." });
             }
 
-            var imageUrl = movie.MoviePoster != null
-                ? $"{Request.Scheme}://{Request.Host}{movie.MoviePoster}" // Full URL to the poster
-                : null;
-
-            return Ok(new
-            {
-                movie.MovieId,
-                movie.MovieName,
-                movie.MovieDescription,
-                movie.MovieDuration,
-                movie.MovieReleaseDate,
-                movie.MovieLanguage,
-                MoviePoster = imageUrl, // Full URL for the poster
-                movie.MovieGenre
-            });
+            return Ok(shows);
         }
 
 
-        
 
-        
+
+
+
+
+
+
+
 
         [HttpDelete("movies/{id}")]
         public async Task<IActionResult> DeleteMovie(int id)

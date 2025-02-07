@@ -33,6 +33,10 @@ namespace Admin_Management_API.Models
 
             [Required]
             public string MovieGenre { get; set; } = null!;
+
+            [Required]
+
+            public string MovieTrailer { get; set; } = null;
         }
     }
 
