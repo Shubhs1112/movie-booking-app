@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { FaUsersCog, FaChartLine, FaCog, FaPhotoVideo, FaUser } from 'react-icons/fa';
+import { FaUsersCog, FaChartLine, FaCog, FaPhotoVideo, FaUser,FaRegComment  } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -11,6 +11,8 @@ import Movies from './Movies';
 import AddShow from './AddShow';
 import CurrentShows from './CurrentShows';
 import ManageUsers from './ManageUsers';
+import ManageReviews from './Reviews';
+import Analytics from './Analytics';
 
 const AdminDashboard = () => {
     const location = useLocation();
@@ -44,6 +46,11 @@ const AdminDashboard = () => {
                             <FaUsersCog className="me-2 text-success" /> <span className="fw-semibold">Manage Shows</span>
                         </Button>
 
+                        <Button variant="light" className={`d-flex align-items-center mb-3 w-100 shadow-sm py-2 px-3 rounded border border-secondary bg-opacity-50 ${selectedComponent === 'reviews' ? 'active' : ''}`}
+                            onClick={() => isAuthenticated && setSelectedComponent('reviews')}>
+                            <FaRegComment className="me-2 text-secondary" /> <span className="fw-semibold">Manage Reviews</span>
+                        </Button>
+
                         <Button variant="light" className={`d-flex align-items-center mb-3 w-100 shadow-sm py-2 px-3 rounded border border-warning bg-opacity-50 ${selectedComponent === 'analytics' ? 'active' : ''}`}
                             onClick={() => isAuthenticated && setSelectedComponent('analytics')}>
                             <FaChartLine className="me-2 text-warning" /> <span className="fw-semibold">Analytics</span>
@@ -68,6 +75,8 @@ const AdminDashboard = () => {
                         {isAuthenticated && selectedComponent === 'currentShows' && <CurrentShows />}
                         {isAuthenticated && selectedComponent === 'addShow' && <AddShow />}
                         {isAuthenticated && selectedComponent === 'manageUsers' && <ManageUsers />}
+                        {isAuthenticated && selectedComponent === 'reviews' && <ManageReviews />}
+                        {isAuthenticated && selectedComponent === 'analytics' && <Analytics />}
                     </Col>
                 </Row>
             </Container>

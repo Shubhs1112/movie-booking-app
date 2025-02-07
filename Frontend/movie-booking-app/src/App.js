@@ -16,6 +16,12 @@ import UpdateShow from './components/admin/UpdateShow';
 import ManageReviews from './components/admin/ManageReviews';
 import UserDashboard from './components/user/UserDashboard';
 import BookMovie from './components/user/BookMovie';
+import SelectShow from './components/user/SelectShow';
+import SelectSeat from './components/user/SelectSeat';
+import MakePayment from './components/user/Payment';
+import Confirmation from './components/user/ConfirmationPage';
+import MyBookings from './components/user/MyBookings';
+
 
 function App() {
   return (
@@ -31,9 +37,17 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/user/forgot-password" element={<ForgotPassword />} />
-          <Route path="/user/updateProfile" element={<UpdateProfile />} />
+          <Route path="/user/update-profile" element={<UpdateProfile />} />
+          <Route path="/user/my-bookings" element={<MyBookings />} />
           <Route path="/user/selectSeat" element={<SeatBooking />} />
           <Route path="/user/book-movie/:movieId" element={<BookMovie />} />
+          <Route path="/user/select-show/:movieId" element={<SelectShow />} />
+          <Route path="/user/book-seats/:showId/" element={<SelectSeat />} />
+          <Route path="/user/payment/:showId/" element={<MakePayment />} />
+          <Route path="/user/booking-confirmed/" element={<Confirmation />} />
+
+          {/* <Route path="/user/select-seat" element={<SeatInterface />} /> */}
+
 
 
 

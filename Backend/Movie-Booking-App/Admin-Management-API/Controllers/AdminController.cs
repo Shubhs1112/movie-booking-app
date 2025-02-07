@@ -291,7 +291,9 @@ namespace Admin_Management_API.Controllers
 
             // Update only the allowed fields
             existingShow.ShowDate = showDto.ShowDate;
-            existingShow.ShowEndDate = showDto.ShowEndDate;
+            existingShow.ShowEndDate = string.IsNullOrWhiteSpace(showDto.ShowEndDate?.ToString())
+                ? null
+                : showDto.ShowEndDate;
             existingShow.ShowTime = showTime;  // Convert to TimeSpan
             existingShow.ScreenId = showDto.ScreenId;
 

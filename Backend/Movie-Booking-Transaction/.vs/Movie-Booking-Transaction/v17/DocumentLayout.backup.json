@@ -7,8 +7,32 @@
       "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\models\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\models\\bookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\models\\bookingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\customer-transaction-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\customer-transaction-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-transaction\\customer-transaction-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F518859-78C1-4443-BFD5-7F35556299FA}|Customer-Transaction-API\\Customer-Transaction-API.csproj|solutionrelative:customer-transaction-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +54,107 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:09:10.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Models\\User.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\User.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Models\\User.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T13:05:32.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Seat.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Models\\Seat.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Seat.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Models\\Seat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T10:34:51.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookingDTO.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\BookingDTO.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Models\\BookingDTO.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\BookingDTO.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Models\\BookingDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T10:34:08.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Booking.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Models\\Booking.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Booking.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Models\\Booking.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T10:29:50.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Program.cs",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Program.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Program.cs",
+              "RelativeToolTip": "Customer-Transaction-API\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAzwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T09:22:06.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Customer-Transaction-API",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Customer-Transaction-API.csproj",
+              "RelativeDocumentMoniker": "Customer-Transaction-API\\Customer-Transaction-API.csproj",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Customer-Transaction-API.csproj",
+              "RelativeToolTip": "Customer-Transaction-API\\Customer-Transaction-API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-07T09:20:26.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "Customer-Transaction-API\\Controllers\\TransactionController.cs",
               "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Controllers\\TransactionController.cs",
               "RelativeToolTip": "Customer-Transaction-API\\Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA2wBwAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAmwG8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-06T18:40:19.511Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Show.cs",
-              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Show.cs",
-              "RelativeDocumentMoniker": "Customer-Transaction-API\\Models\\Show.cs",
-              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-Transaction\\Customer-Transaction-API\\Models\\Show.cs",
-              "RelativeToolTip": "Customer-Transaction-API\\Models\\Show.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T18:39:57.61Z"
             }
           ]
         }

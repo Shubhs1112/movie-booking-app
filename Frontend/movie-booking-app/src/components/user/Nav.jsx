@@ -27,10 +27,12 @@ const Navigation = ({ isAuthenticated, user }) => {
                             <Navbar.Text className="text-white me-3">Welcome {user} :)</Navbar.Text>
                         )}
                         <Nav.Link as={Link} to="/user-dashboard">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
-                        <Nav.Link as={Link} to="/book">Book a Movie</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/movies">Book a Movie</Nav.Link> */}
                         {isAuthenticated && (
-                            <Nav.Link as={Link} to="/user/updateProfile">Profile</Nav.Link>
+                        <Nav.Link as={Link} to="/user/my-bookings">My Bookings</Nav.Link>
+                         )}
+                        {isAuthenticated && (
+                            <Nav.Link as={Link} to="/user/update-profile">Profile</Nav.Link>
                         )}
                         {isAuthenticated ? (
                             <Button variant="outline-light" onClick={handleLogout} className="ms-2">

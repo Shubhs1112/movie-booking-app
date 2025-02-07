@@ -14,6 +14,7 @@ const AddMovie = () => {
     movieReleaseDate: new Date(),
     movieLanguage: 'English',
     movieGenre: '',
+    movieTrailer: '',
     moviePoster: null,  // Now handling file correctly
   });
 
@@ -33,6 +34,7 @@ const AddMovie = () => {
     if (!formData.movieDuration.trim()) newErrors.movieDuration = 'Duration is required';
     if (!formData.movieReleaseDate) newErrors.movieReleaseDate = 'Release date is required';
     if (!formData.movieGenre.trim()) newErrors.movieGenre = 'Genre is required';
+    if (!formData.movieTrailer.trim()) newErrors.movieTrailer = 'Trailer link is required';
     if (!formData.moviePoster) newErrors.moviePoster = 'Poster is required';
     return newErrors;
   };
@@ -76,20 +78,28 @@ const AddMovie = () => {
       formDataToSend.append('MovieReleaseDate', formData.movieReleaseDate.toISOString().split('T')[0]); // Ensure correct date format
       formDataToSend.append('MovieLanguage', formData.movieLanguage);
       formDataToSend.append('MovieGenre', formData.movieGenre);
+      formDataToSend.append('MovieTrailer', formData.movieTrailer);
       if (formData.moviePoster) {
         formDataToSend.append('PosterFile', formData.moviePoster);
       }
 
-      const response = await fetch('https://localhost:7276/api/Admin/add-movie', {
-        method: 'POST',
-        body: formDataToSend,
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to add movie');
+      try {
+        const response = await fetch('https://localhost:7276/api/Admin/add-movie', {
+            method: 'POST',
+            body: formDataToSend,
+        });
+    
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error("Server Error Response:", errorData);  
+          console.error("Validation Errors:", errorData.errors);  
+          throw new Error(errorData.title || "Failed to add movie");
+        }
+      } catch (error) {
+          console.error("Error adding movie:", error);
+          setSubmitError(error.message || "Failed to add movie. Please try again.");
       }
-
+    
       // Success: show success message
       setSuccessMessage('Movie added successfully!');
 
@@ -106,6 +116,7 @@ const AddMovie = () => {
         movieReleaseDate: new Date(),
         movieLanguage: 'English',
         movieGenre: '',
+        movieTrailer: '',
         moviePoster: null,
       });
       setPreviewImage(null);
@@ -209,6 +220,18 @@ const AddMovie = () => {
             {errors.movieReleaseDate && <div className="invalid-feedback">{errors.movieReleaseDate}</div>}
           </div>
 
+          <div className="mb-3">
+            <label className="form-label">Trailer Link</label>
+            <input
+              type="text"
+              name="movieTrailer"
+              value={formData.movieTrailer}
+              onChange={handleInputChange}
+              className={`form-control ${errors.movieTrailer ? 'is-invalid' : ''}`}
+            />
+            {errors.movieTrailer && <div className="invalid-feedback">{errors.movieTrailer}</div>}
+          </div>
+          
           <div className="mb-3">
             <label className="form-label"><FaUpload /> Upload Poster</label>
             <input

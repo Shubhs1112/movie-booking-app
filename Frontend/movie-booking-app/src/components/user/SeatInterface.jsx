@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import '../../resources/SeatBooking.css';
 
 const SeatBooking = () => {
   const [seats, setSeats] = useState(() => createSeats());

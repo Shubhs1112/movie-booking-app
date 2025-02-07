@@ -6,8 +6,11 @@ import { Link, useNavigate } from 'react-router-dom'; // Import Link for navigat
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [movieNameFilter, setMovieNameFilter] = useState('');
+  const [movieGenreFilter, setMovieGenreFilter] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +23,7 @@ const Movies = () => {
         }
         const data = await response.json();
         setMovies(data);
+        setFilteredMovies(data); // Initially, show all movies
       } catch (err) {
         setError(err.message || 'Failed to fetch data');
       } finally {
@@ -30,9 +34,27 @@ const Movies = () => {
     fetchMovies();
   }, []);
 
-  // Functions for handling 
+  // Functions for handling reviews
   const handleReviews = (movieId) => {
     navigate(`/admin/manage-reviews/${movieId}`);
+  };
+
+  // Handle movie name filter change
+  const handleMovieNameFilterChange = (event) => {
+    const filtered = movies.filter((movie) =>
+      movie.movieName.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setMovieNameFilter(event.target.value);
+    setFilteredMovies(filtered);
+  };
+
+  // Handle movie genre filter change
+  const handleMovieGenreFilterChange = (event) => {
+    const filtered = movies.filter((movie) =>
+      movie.movieGenre.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    setMovieGenreFilter(event.target.value);
+    setFilteredMovies(filtered);
   };
 
   return (
@@ -44,7 +66,30 @@ const Movies = () => {
             Add New Movie
           </Link>
         </div>
+        
+        {/* Filter Section */}
+        <div className="d-flex align-items-center mt-3">
+          {/* Movie Name Filter */}
+          <input
+            type="text"
+            className="form-control me-3"
+            placeholder="Search movie"
+            value={movieNameFilter}
+            onChange={handleMovieNameFilterChange}
+          />
+          
+          {/* Movie Genre Filter */}
+          <input
+            type="text"
+            className="form-control me-3"
+            placeholder="Filter by genre"
+            value={movieGenreFilter}
+            onChange={handleMovieGenreFilterChange}
+          />
+        </div>
+
         {error && <div className="alert alert-danger">{error}</div>}
+
         {isLoading ? (
           <div>Loading...</div>
         ) : (
@@ -61,8 +106,8 @@ const Movies = () => {
               </tr>
             </thead>
             <tbody>
-              {movies.length > 0 ? (
-                movies.map((movie) => (
+              {filteredMovies.length > 0 ? (
+                filteredMovies.map((movie) => (
                   <tr key={movie.movieId}>
                     <td style={{ maxWidth: '130px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {movie.movieName}</td>
@@ -71,8 +116,7 @@ const Movies = () => {
                     </td>
                     <td>{movie.movieLanguage}</td>
                     <td>{movie.movieGenre || 'N/A'}</td>
-                    <td>
-                        {new Date(movie.movieReleaseDate).toLocaleDateString()}</td>
+                    <td>{new Date(movie.movieReleaseDate).toLocaleDateString()}</td>
                     <td>{movie.movieDuration || 'N/A'}</td>
                     <td style={{ maxWidth: '200px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       <Link
@@ -81,7 +125,6 @@ const Movies = () => {
                       >
                         Edit Movie
                       </Link>
-
                       <button
                         className="btn btn-warning btn-sm mx-1"
                         onClick={() => handleReviews(movie.movieId)}

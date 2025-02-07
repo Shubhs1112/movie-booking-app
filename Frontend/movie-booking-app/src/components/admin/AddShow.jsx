@@ -11,8 +11,9 @@ const AddShows = () => {
     selectedMovie: '',
     selectedScreen: '1',
     showDate: new Date(),
+    showEndDate: new Date(),
     showTime: '',
-    movieId: '',  // Added movieId to track the selected movie's ID
+    movieId: '',  
   });
 
   const [movies, setMovies] = useState([]);
@@ -46,6 +47,7 @@ const AddShows = () => {
     const newErrors = {};
     if (!formData.selectedMovie) newErrors.selectedMovie = 'Movie selection is required';
     if (!formData.showDate) newErrors.showDate = 'Show date is required';
+    if (!formData.showEndDate) newErrors.showEndDate = 'Show end date is required';
     if (!formData.showTime) newErrors.showTime = 'Show time is required';
     return newErrors;
   };
@@ -59,7 +61,7 @@ const AddShows = () => {
   // Handle movie selection
   const handleMovieChange = (e) => {
     const selectedMovieId = e.target.value;
-    const selectedMovie = movies.find(movie => movie.movieId === parseInt(selectedMovieId));
+    // const selectedMovie = movies.find(movie => movie.movieId === parseInt(selectedMovieId));
     setFormData((prev) => ({
       ...prev,
       selectedMovie: selectedMovieId,
@@ -88,6 +90,7 @@ const AddShows = () => {
           movieId: formData.movieId,
           screenId: formData.selectedScreen,
           showDate: formData.showDate.toISOString(), // Ensure the date is in ISO format
+          showEndDate: formData.showEndDate.toISOString(),
           showTime: formData.showTime,
         }),
       });
@@ -110,6 +113,7 @@ const AddShows = () => {
         selectedMovie: '',
         selectedScreen: '1',
         showDate: new Date(),
+        showEndDate: new Date(),
         showTime: '',
         movieId: '', // Reset movieId as well
       });
@@ -177,16 +181,30 @@ const AddShows = () => {
             </div>
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">Show Date</label>
-            <DatePicker
-              selected={formData.showDate}
-              onChange={(date) => setFormData((prev) => ({ ...prev, showDate: date }))}
-              className={`form-control ${errors.showDate ? 'is-invalid' : ''}`}
-              dateFormat="yyyy-MM-dd"
-            />
-            {errors.showDate && <div className="invalid-feedback">{errors.showDate}</div>}
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label className="form-label">Show Date</label>
+              <DatePicker
+                selected={formData.showDate}
+                onChange={(date) => setFormData((prev) => ({ ...prev, showDate: date }))}
+                className={`form-control ${errors.showDate ? 'is-invalid' : ''}`}
+                dateFormat="yyyy-MM-dd"
+              />
+              {errors.showDate && <div className="invalid-feedback">{errors.showDate}</div>}
+            </div>
+
+            <div className="col-md-6 mb-3">
+              <label className="form-label">Show End Date</label>
+              <DatePicker
+                selected={formData.showEndDate}
+                onChange={(date) => setFormData((prev) => ({ ...prev, showEndDate: date }))}
+                className={`form-control ${errors.showEndDate ? 'is-invalid' : ''}`}
+                dateFormat="yyyy-MM-dd"
+              />
+              {errors.showEndDate && <div className="invalid-feedback">{errors.showEndDate}</div>}
+            </div>
           </div>
+
 
           <div className="mb-3">
             <label className="form-label">Show Time</label>

@@ -15,7 +15,7 @@ public partial class Show
 
     public TimeOnly ShowTime { get; set; }
 
-    public DateOnly ShowEndDate { get; set; }
+    public DateOnly? ShowEndDate { get; set; }
 
     public string? ShowBookings { get; set; }
 

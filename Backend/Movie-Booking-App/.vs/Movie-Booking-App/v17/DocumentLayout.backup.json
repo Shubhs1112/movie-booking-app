@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\models\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\models\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\models\\showdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\models\\showdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|c:\\shubham k\\advanced java\\cdac project\\movie-booking-app\\backend\\movie-booking-app\\admin-management-api\\models\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDE510BA-8056-4776-85E3-49518B32082A}|Admin-Management-API\\Admin-Management-API.csproj|solutionrelative:admin-management-api\\models\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -39,11 +47,12 @@
               "ViewState": "AgIAAAwAAAAAAAAAAAAYwBMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-05T16:01:06.711Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MovieDTO.cs",
               "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Models\\MovieDTO.cs",
               "RelativeDocumentMoniker": "Admin-Management-API\\Models\\MovieDTO.cs",
@@ -64,28 +73,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ShowDTO.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Models\\ShowDTO.cs",
+              "RelativeDocumentMoniker": "Admin-Management-API\\Models\\ShowDTO.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Models\\ShowDTO.cs",
+              "RelativeToolTip": "Admin-Management-API\\Models\\ShowDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T04:43:51.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Show.cs",
+              "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Models\\Show.cs",
+              "RelativeDocumentMoniker": "Admin-Management-API\\Models\\Show.cs",
+              "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Models\\Show.cs",
+              "RelativeToolTip": "Admin-Management-API\\Models\\Show.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T04:21:18.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Program.cs",
               "RelativeDocumentMoniker": "Admin-Management-API\\Program.cs",
               "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Program.cs",
               "RelativeToolTip": "Admin-Management-API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-06T07:39:04.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Admin-Management-API\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Shubham K\\Advanced Java\\CDAC PROJECT\\movie-booking-app\\Backend\\Movie-Booking-App\\Admin-Management-API\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Admin-Management-API\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAqwCMBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T18:21:42.957Z"
+              "WhenOpened": "2025-02-04T18:21:42.957Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -15,7 +15,5 @@ public partial class Seat
 
     public bool? IsAvailable { get; set; }
 
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
-
     public virtual Screen Screen { get; set; } = null!;
 }

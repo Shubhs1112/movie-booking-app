@@ -9,8 +9,6 @@ public partial class Booking
 
     public int ShowId { get; set; }
 
-    public int SeatId { get; set; }
-
     public int UserId { get; set; }
 
     public DateTime BookingDate { get; set; }
@@ -24,8 +22,6 @@ public partial class Booking
     public string? SeatNumbers { get; set; }
 
     public virtual Category? Category { get; set; }
-
-    public virtual Seat Seat { get; set; } = null!;
 
     public virtual Show Show { get; set; } = null!;
 

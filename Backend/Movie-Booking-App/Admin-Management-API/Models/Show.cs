@@ -18,7 +18,7 @@ public partial class Show
     public TimeSpan ShowTime { get; set; }
 
     [Column("show_end_date")]
-    public DateTime ShowEndDate { get; set; }
+    public DateTime? ShowEndDate { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 

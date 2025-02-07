@@ -53,8 +53,6 @@ public partial class P18MoviebookingsystemContext : DbContext
 
             entity.HasIndex(e => e.ShowId, "booking_ibfk_1");
 
-            entity.HasIndex(e => e.SeatId, "booking_ibfk_2");
-
             entity.HasIndex(e => e.UserId, "booking_ibfk_3");
 
             entity.HasIndex(e => e.CategoryId, "category_id4343_idx");
@@ -70,7 +68,6 @@ public partial class P18MoviebookingsystemContext : DbContext
                 .HasColumnType("time")
                 .HasColumnName("booking_time");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
-            entity.Property(e => e.SeatId).HasColumnName("seat_id");
             entity.Property(e => e.SeatNumbers)
                 .HasColumnType("json")
                 .HasColumnName("seat_numbers");
@@ -80,11 +77,6 @@ public partial class P18MoviebookingsystemContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.CategoryId)
                 .HasConstraintName("category_id4343");
-
-            entity.HasOne(d => d.Seat).WithMany(p => p.Bookings)
-                .HasForeignKey(d => d.SeatId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("booking_ibfk_2");
 
             entity.HasOne(d => d.Show).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.ShowId)

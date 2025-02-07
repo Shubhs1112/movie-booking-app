@@ -4,10 +4,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { FaUpload, FaFilm } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminNavbar from '../admin/AdminNavbar';
-import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-
-const UpdateMovie = ({ match }) => {
+const UpdateMovie = () => {
   const [formData, setFormData] = useState({
     movieId: 1,
     movieName: '',
@@ -16,6 +15,7 @@ const UpdateMovie = ({ match }) => {
     movieReleaseDate: new Date(),
     movieLanguage: 'English',
     movieGenre: '',
+    movieTrailer: '',
     moviePoster: null,
   });
 
@@ -26,7 +26,6 @@ const UpdateMovie = ({ match }) => {
   const [successMessage, setSuccessMessage] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
-
 
   // Fetch movie data by ID for updating
   useEffect(() => {
@@ -45,6 +44,7 @@ const UpdateMovie = ({ match }) => {
           movieReleaseDate: new Date(data.movieReleaseDate),
           movieLanguage: data.movieLanguage,
           movieGenre: data.movieGenre,
+          movieTrailer: data.movieTrailer, // Added movieTrailer here
           moviePoster: data.moviePoster,
         });
         setPreviewImage(data.moviePoster); // Show the existing poster
@@ -64,6 +64,7 @@ const UpdateMovie = ({ match }) => {
     if (!formData.movieDuration.trim()) newErrors.movieDuration = 'Duration is required';
     if (!formData.movieReleaseDate) newErrors.movieReleaseDate = 'Release date is required';
     if (!formData.movieGenre.trim()) newErrors.movieGenre = 'Genre is required';
+    if (!formData.movieTrailer.trim()) newErrors.movieTrailer = 'Trailer link is required'; // Validation for movieTrailer
     return newErrors;
   };
 
@@ -107,6 +108,7 @@ const UpdateMovie = ({ match }) => {
       formDataToSend.append('MovieReleaseDate', formData.movieReleaseDate.toISOString().split('T')[0]);
       formDataToSend.append('MovieLanguage', formData.movieLanguage);
       formDataToSend.append('MovieGenre', formData.movieGenre);
+      formDataToSend.append('MovieTrailer', formData.movieTrailer); // Include trailer in form data
       if (formData.moviePoster) {
         formDataToSend.append('PosterFile', formData.moviePoster);
       }
@@ -227,29 +229,26 @@ const UpdateMovie = ({ match }) => {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Movie Release Date</label>
-            <DatePicker
-              selected={formData.movieReleaseDate}
-              onChange={(date) => setFormData(prev => ({ ...prev, movieReleaseDate: date }))}
-              className={`form-control ${errors.movieReleaseDate ? 'is-invalid' : ''}`}
-              dateFormat="yyyy-MM-dd"
+            <label className="form-label">Movie Trailer (URL)</label>
+            <input
+              type="text"
+              name="movieTrailer"
+              value={formData.movieTrailer}
+              onChange={handleInputChange}
+              className={`form-control ${errors.movieTrailer ? 'is-invalid' : ''}`}
             />
-            {errors.movieReleaseDate && <div className="invalid-feedback">{errors.movieReleaseDate}</div>}
+            {errors.movieTrailer && <div className="invalid-feedback">{errors.movieTrailer}</div>}
           </div>
 
           <div className="mb-3">
-            <label className="form-label"><FaUpload /> Upload Poster</label>
+            <label className="form-label">Movie Poster</label>
             <input
               type="file"
               accept="image/*"
               onChange={handleFileChange}
-              className={`form-control ${errors.moviePoster ? 'is-invalid' : ''}`}
+              className="form-control"
             />
-            {errors.moviePoster && <div className="invalid-feedback">{errors.moviePoster}</div>}
-            {previewImage && <img src={previewImage} alt="Poster preview" className="img-thumbnail mt-2" style={{ maxWidth: '200px' }} />}
-            {formData.moviePoster && !previewImage && (
-              <img src={formData.moviePoster} alt="Current Poster" className="img-thumbnail mt-2" style={{ maxWidth: '200px' }} />
-            )}
+            {previewImage && <img src={previewImage} alt="Poster Preview" className="mt-3" width="200" />}
           </div>
 
           <button 
