@@ -26,7 +26,7 @@ const AdminNavbar = () => {
         <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
             <Container>
                 <Navbar.Brand>
-                    <FaTachometerAlt className="me-2" /> Book Karo
+                    Book Karo
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

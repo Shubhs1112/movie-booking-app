@@ -15,7 +15,7 @@ const Navigation = ({ isAuthenticated, user }) => {
                 navigate('/'); 
             }, 20);
         };
-
+ 
     return (
         <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
             <Container>
