@@ -84,7 +84,7 @@ const AddMovie = () => {
       }
 
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/add-movie', {
+        const response = await fetch('http://localhost:8180/management/Admin/add-movie', {
             method: 'POST',
             body: formDataToSend,
         });

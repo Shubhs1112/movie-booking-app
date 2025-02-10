@@ -14,7 +14,7 @@ const MyBookings = () => {
 
         const fetchBookings = async () => {
             try {
-                const response = await fetch(`https://localhost:7042/api/Transaction/bookings/user/${user}`);
+                const response = await fetch(`http://localhost:8180/transaction/Transaction/bookings/user/${user}`);
                 if (!response.ok) throw new Error('Failed to fetch bookings.');
 
                 const data = await response.json();

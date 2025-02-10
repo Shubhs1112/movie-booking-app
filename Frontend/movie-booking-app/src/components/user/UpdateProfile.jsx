@@ -27,7 +27,7 @@ const UpdateProfile = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/${user}`, {
+                const response = await fetch(`http://localhost:8180/auth/${user}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

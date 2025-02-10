@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useNavigate} from 'react-router-dom';
-import { FaStar, FaRegStar, FaPlay } from "react-icons/fa";
+import { FaStar, FaRegStar, FaPlay, FaPlus } from "react-icons/fa";
 import Nav from './Nav';
 
 const BookMovie = () => {
@@ -11,15 +11,21 @@ const BookMovie = () => {
     
     const [movie, setMovie] = useState(null);
     const [reviews, setReviews] = useState([]); 
+    const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    // New states for adding a review
+    const [showReviewForm, setShowReviewForm] = useState(false);
+    const [reviewMessage, setReviewMessage] = useState("");
+    const [rating, setRating] = useState(0);
     
     useEffect(() => {
         const fetchMovieData = async () => {
             try {
                 const [movieResponse, reviewsResponse] = await Promise.all([
-                    fetch(`https://localhost:7276/api/Admin/movies/${movieId}`),
-                    fetch(`https://localhost:7276/api/Admin/GetReviewsByMovieId/${movieId}`)
+                    fetch(`http://localhost:8180/management/Admin/movies/${movieId}`),
+                    fetch(`http://localhost:8180/management/Admin/GetReviewsByMovieId/${movieId}`)
                 ]);
 
                 const movieData = await movieResponse.json();
@@ -34,8 +40,22 @@ const BookMovie = () => {
             }
         };
 
+        // Fetch user ID
+        const fetchUserId = async () => {
+            if (user) {
+                try {
+                    const response = await fetch(`http://localhost:8180/auth/${user}`);
+                    const data = await response.json();
+                    setUserId(data.user_id);
+                } catch (error) {
+                    console.error("Failed to fetch user ID:", error);
+                }
+            }
+        };
+
         fetchMovieData();
-    }, [movieId]);
+        fetchUserId();
+    }, [movieId, user]);
 
     // Render Stars for reviews
     const renderStars = (rating) => {
@@ -44,6 +64,23 @@ const BookMovie = () => {
             stars.push(i <= rating ? <FaStar key={i} className="text-warning" /> : <FaRegStar key={i} className="text-secondary" />);
         }
         return stars;
+    };
+
+    // Render Stars for reviews (Clickable if setRating is provided)
+    const renderStarsF = (rating, setRating = null) => {
+        return [...Array(5)].map((_, i) => {
+            const starValue = i + 1;
+            return (
+                <span 
+                    key={starValue} 
+                    className={starValue <= rating ? "text-warning" : "text-secondary"} 
+                    style={setRating ? { cursor: "pointer" } : {}}
+                    onClick={() => setRating && setRating(starValue)} // Make stars clickable
+                >
+                    {starValue <= rating ? <FaStar /> : <FaRegStar />}
+                </span>
+            );
+        });
     };
 
     // Function to extract YouTube video ID from URL
@@ -66,6 +103,56 @@ const BookMovie = () => {
     //Handle Book Tickets
     const handleBookTickets = () => {
         navigate(`/user/select-show/${movieId}`); 
+    };
+
+    // Submit Review
+    const handleSubmitReview = async () => {
+        if (!reviewMessage || rating === 0) {
+            alert("Please enter a review message and select a rating.");
+            return;
+        }
+
+        const newReview = {
+            reviewMsg: reviewMessage,
+            rating,
+            movieId,
+            userId
+        };
+
+        try {
+            console.log("Submitting Review:", JSON.stringify({
+                reviewMsg: reviewMessage,
+                rating: rating,
+                movieId: movieId,
+                userId: userId
+            }, null, 2));
+            
+            const response = await fetch("http://localhost:8180/management/Admin/reviews/add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newReview),
+            });
+
+            console.log("Submitting Review:", newReview);
+
+
+            if (response.ok) {
+                alert("Review submitted successfully!");
+
+                const updatedReviewsResponse = await fetch(`http://localhost:8180/management/Admin/GetReviewsByMovieId/${movieId}`);
+                const updatedReviews = await updatedReviewsResponse.json();
+                
+                setReviews(updatedReviews); // Update state with fresh data
+                setReviewMessage("");
+                setRating(0);
+                setShowReviewForm(false);
+            } else {
+                alert("Failed to submit review.");
+            }
+        } catch (error) {
+            console.error("Error submitting review:", error);
+            alert("Error submitting review. Please try again.");
+        }
     };
 
     return (
@@ -118,7 +205,24 @@ const BookMovie = () => {
                             <p className="text-muted">{movie.movieDescription}</p>
 
                             <div className="mt-4">
-                                <h5 className="fw-bold">User Reviews</h5>
+                                <div className="d-flex align-items-center justify-content-between mb-2">
+                                    <h5 className="fw-bold mb-0">User Reviews</h5>
+                                    <button className="btn btn-success btn-sm" onClick={() => setShowReviewForm(!showReviewForm)}>
+                                        <FaPlus /> Add Review
+                                    </button>
+                                </div>
+
+                                {showReviewForm && (
+                                    <div className="card p-3 mb-3">
+                                        <textarea className="form-control mb-2" 
+                                                placeholder="Write your review..." 
+                                                value={reviewMessage} 
+                                                onChange={(e) => setReviewMessage(e.target.value)} />
+                                        <div className="mb-2">{renderStarsF(rating, setRating)}</div> 
+                                        <button className="btn btn-primary btn-sm" onClick={handleSubmitReview}>Post Review</button>
+                                    </div>
+                                )}
+
                                 {reviews.length > 0 ? (
                                     <div className="list-group">
                                         {reviews.map((review, index) => (

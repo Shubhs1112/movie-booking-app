@@ -16,7 +16,7 @@ const Reviews = () => {
     // Fetch data from the API when the component mounts
     const fetchReviews = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/GetReviewsWithUsers');
+        const response = await fetch('http://localhost:8180/management/Admin/GetReviewsWithUsers');
         if (!response.ok) {
           throw new Error('Failed to fetch reviews');
         }

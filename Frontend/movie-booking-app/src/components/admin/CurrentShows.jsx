@@ -21,7 +21,7 @@ const CurrentShows = () => {
     // Fetch data from the API when the component mounts
     const fetchMovies = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/current-shows');
+        const response = await fetch('http://localhost:8180/management/Admin/current-shows');
         if (!response.ok) {
           throw new Error('Failed to fetch current shows');
         }
@@ -53,7 +53,7 @@ const CurrentShows = () => {
     }
 
     try {
-      const response = await fetch(`https://localhost:7276/api/Admin/delete-show/${showId}`, {
+      const response = await fetch(`http://localhost:8180/management/Admin/delete-show/${showId}`, {
         method: 'DELETE',
       });
 
@@ -143,7 +143,7 @@ const CurrentShows = () => {
               <tr>
                 <th>Movie Name</th>
                 <th>Duration</th>
-                <th>Release Date</th>
+                <th>Show Date</th>
                 <th>Language</th>
                 <th>Genre</th>
                 <th>Show Time</th>

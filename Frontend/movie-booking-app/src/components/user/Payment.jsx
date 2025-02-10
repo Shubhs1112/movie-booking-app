@@ -19,12 +19,12 @@ const Payment = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch(`https://localhost:7042/api/Transaction/show/${showId}`)
+        fetch(`http://localhost:8180/transaction/Transaction/show/${showId}`)
             .then(response => response.json())
             .then(data => setBookingDetails(data))
             .catch(error => console.error("Error fetching booking details:", error));
 
-        fetch(`https://localhost:7042/api/User/by-username/${user}`)
+        fetch(`http://localhost:8180/transaction/User/by-username/${user}`)
             .then(response => response.json())
             .then(data => setUserInfo(data))
             .catch(error => console.error("Error fetching user information:", error));
@@ -57,7 +57,7 @@ const Payment = () => {
         };
 
         try {
-            const response = await fetch(`https://localhost:7042/api/Transaction/book-show/${showId}`, {
+            const response = await fetch(`http://localhost:8180/transaction/Transaction/book-show/${showId}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(bookingData),

@@ -14,10 +14,6 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const handleUserTypeChange = (type) => {
-        setUserType(type);
-    };
-
     const validateFields = () => {
         if (!username || !password || !firstName || !lastName || !email || !phone || !userType) {
             setMessage("All fields are required.");
@@ -64,7 +60,7 @@ const Register = () => {
             return;
         }
 
-        const role = userType === "customer" ? "Customer" : "Admin";
+        const role = "Customer";
 
         const payload = {
             username,
@@ -77,7 +73,7 @@ const Register = () => {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/register", {
+            const response = await fetch("http://localhost:8180/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -190,34 +186,7 @@ const Register = () => {
                             className="form-control"
                         />
                     </div>
-                    {/* User Type */}
-                    <div className="mb-3">
-                        <span className="form-label">User Type</span>
-                        <div>
-                            <label className="form-check-label me-3">
-                                <input
-                                    type="radio"
-                                    name="userType"
-                                    value="customer"
-                                    checked={userType === "customer"}
-                                    onChange={() => handleUserTypeChange("customer")}
-                                    className="form-check-input"
-                                />
-                                Customer
-                            </label>
-                            <label className="form-check-label">
-                                <input
-                                    type="radio"
-                                    name="userType"
-                                    value="admin"
-                                    checked={userType === "admin"}
-                                    onChange={() => handleUserTypeChange("admin")}
-                                    className="form-check-input"
-                                />
-                                Admin
-                            </label>
-                        </div>
-                    </div>
+                    
                     {/* Submit Button */}
                     <button className="btn btn-primary w-100" type="submit">Register</button>
                 </form>

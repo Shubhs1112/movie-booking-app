@@ -25,7 +25,7 @@ const UpdateShow = () => {
   useEffect(() => {
     const fetchShow = async () => {
       try {
-        const response = await fetch(`https://localhost:7276/api/Admin/show/${id}`);
+        const response = await fetch(`http://localhost:8180/management/Admin/show/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch show data');
         }
@@ -76,7 +76,7 @@ const UpdateShow = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch(`https://localhost:7276/api/Admin/update-show/${formData.showId}`, {
+      const response = await fetch(`http://localhost:8180/management/Admin/update-show/${formData.showId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

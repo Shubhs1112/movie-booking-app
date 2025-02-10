@@ -22,7 +22,7 @@ const Login = () => {
         };
 
         try {
-            const response = await fetch(`http://localhost:8080/login`, {
+            const response = await fetch(`http://localhost:8180/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const Login = () => {
                 {/* Signup Link */}
                 <div className="text-center">
                     <p className="mb-1">
-                        <Link to="/forgot-password" className="text-decoration-none">
+                        <Link to="/user/forgot-password" className="text-decoration-none">
                             Forgot Password?
                         </Link>
                     </p>

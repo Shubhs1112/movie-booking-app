@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaFilm } from 'react-icons/fa'; // Importing FaFilm for icon usage
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
 
-const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+const Analytics = () => {
+  const [shows, setShows] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data from the API when the component mounts
-    const fetchReviews = async () => {
+    const fetchAnalyticsData = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/GetReviewsWithUsers');
+        const response = await fetch('http://localhost:8180/management/Admin/reports/detailed-shows');
         if (!response.ok) {
-          throw new Error('Failed to fetch reviews');
+          throw new Error('Failed to fetch analytics data');
         }
         const data = await response.json();
-        setReviews(data);
+        setShows(data);
       } catch (err) {
         setError(err.message || 'Failed to fetch data');
       } finally {
@@ -25,51 +23,72 @@ const Reviews = () => {
       }
     };
 
-    fetchReviews();
+    fetchAnalyticsData();
   }, []);
+
+  const barChartData = shows.map((show) => ({
+    movieName: show.movieName,
+    totalBookings: show.totalBookings,
+  }));
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28DFF'];
 
   return (
     <div className="container mt-5 bg-light bg-opacity-75 border p-4 rounded">
-      <div className="d-flex justify-content-between align-items-center">
-        <h1><FaFilm /> Reviews</h1>
-      </div>
-
+      <h1>Analytics</h1>
       {error && <div className="alert alert-danger">{error}</div>}
-
       {isLoading ? (
-        <div>Loading...</div>
+        <div className="text-center">Loading...</div>
       ) : (
-        <table className="table table-bordered table-rounded mt-4">
-          <thead>
-            <tr>
-              <th>Movie Name</th>
-              <th>Review Message</th>
-              <th>Rating</th>
-              <th>Username</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reviews.length > 0 ? (
-              reviews.map((review) => (
-                <tr key={review.reviewId}>
-                  <td>{review.movieName}</td>
-                  <td>{review.reviewMsg || 'N/A'}</td>
-                  <td>{review.rating || 'N/A'}</td>
-                  <td>{review.user.username}</td>
-                </tr>
-              ))
-            ) : (
+        <>
+          {/* Bar Chart */}
+          <div className="d-flex justify-content-center mt-4">
+            <ResponsiveContainer width="80%" height={300}>
+              <BarChart data={barChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="movieName" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="totalBookings" fill="#00C49F" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Data Table */}
+          <table className="table table-bordered table-rounded mt-4">
+            <thead>
               <tr>
-                <td colSpan="4" className="text-center">
-                  No reviews available
-                </td>
+                <th>Show</th>
+                <th>Movie Name</th>
+                <th>Total Bookings</th>
+                <th>Total Collection</th>
+                
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {shows.length > 0 ? (
+                shows.map((show) => (
+                  <tr key={show.movieId}>
+                    <td>{show.showId} - {show.showDate} {show.showTime}</td>
+                    <td>{show.movieName}</td>
+                    <td>{show.totalBookings}</td>
+                    <td>₹ {show.totalAmount}.00</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="2" className="text-center">
+                    No data available
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </>
       )}
     </div>
   );
 };
 
-export default Reviews;
+export default Analytics;

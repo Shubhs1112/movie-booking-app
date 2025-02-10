@@ -31,9 +31,13 @@ const AdminNavbar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/admin">
+                        {isAuthenticated ? (
+                        <Nav.Link as={Link} to="/admin-dashboard">
                             <FaHome className="me-2" /> Home
                         </Nav.Link>
+                        ): <Nav.Link as={Link} to="/admin">
+                        <FaHome className="me-2" /> Home
+                    </Nav.Link>}
                         {isAuthenticated && (
                             <Nav.Link as={Link} to="/admin/updateProfile">
                                 <FaUserCircle className="me-2" /> Profile

@@ -31,7 +31,7 @@ const UpdateMovie = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await fetch(`https://localhost:7276/api/Admin/movies/${id}`);
+        const response = await fetch(`http://localhost:8180/management/Admin/movies/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch movie data');
         }
@@ -113,7 +113,7 @@ const UpdateMovie = () => {
         formDataToSend.append('PosterFile', formData.moviePoster);
       }
 
-      const response = await fetch(`https://localhost:7276/api/Admin/update-movie/${formData.movieId}`, {
+      const response = await fetch(`http://localhost:8180/management/Admin/update-movie/${formData.movieId}`, {
         method: 'PUT',
         body: formDataToSend,
       });

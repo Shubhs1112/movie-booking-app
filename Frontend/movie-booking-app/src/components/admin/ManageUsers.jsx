@@ -14,7 +14,7 @@ const ManageUsers = () => {
     // Fetch data from the API when the component mounts
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/customers');
+        const response = await fetch('http://localhost:8180/management/Admin/customers');
         if (!response.ok) {
           throw new Error('Failed to fetch users');
         }

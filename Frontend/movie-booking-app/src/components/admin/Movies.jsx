@@ -17,7 +17,7 @@ const Movies = () => {
     // Fetch data from the API when the component mounts
     const fetchMovies = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/movies');
+        const response = await fetch('http://localhost:8180/management/Admin/movies');
         if (!response.ok) {
           throw new Error('Failed to fetch movies');
         }

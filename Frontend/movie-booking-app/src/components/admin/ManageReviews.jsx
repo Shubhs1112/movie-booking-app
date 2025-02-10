@@ -14,7 +14,7 @@ const ManageReviews = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await fetch(`https://localhost:7276/api/Admin/movies/${movieId}`);
+        const response = await fetch(`http://localhost:8180/management/Admin/movies/${movieId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch movie details');
         }
@@ -27,7 +27,7 @@ const ManageReviews = () => {
 
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`https://localhost:7276/api/Admin/GetReviewsByMovieId/${movieId}`);
+        const response = await fetch(`http://localhost:8180/management/Admin/GetReviewsByMovieId/${movieId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch reviews');
         }

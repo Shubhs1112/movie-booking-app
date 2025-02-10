@@ -17,7 +17,7 @@ const SelectShow = () => {
     useEffect(() => {
         const fetchShows = async () => {
             try {
-                const response = await fetch(`https://localhost:7276/api/Admin/current-shows/${movieId}`);
+                const response = await fetch(`http://localhost:8180/management/Admin/current-shows/${movieId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch show details.');
                 }

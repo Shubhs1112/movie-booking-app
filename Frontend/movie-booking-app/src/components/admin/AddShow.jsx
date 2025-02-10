@@ -27,7 +27,7 @@ const AddShows = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('https://localhost:7276/api/Admin/movies');
+        const response = await fetch('http://localhost:8180/management/Admin/movies');
         if (!response.ok) {
           throw new Error('Failed to fetch movies');
         }
@@ -83,7 +83,7 @@ const AddShows = () => {
 
     try {
       // Send formData to API (replace with real API endpoint)
-      const response = await fetch('https://localhost:7276/api/Admin/add-show', {
+      const response = await fetch('http://localhost:8180/management/Admin/add-show', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -193,7 +193,7 @@ const AddShows = () => {
               {errors.showDate && <div className="invalid-feedback">{errors.showDate}</div>}
             </div>
 
-            <div className="col-md-6 mb-3">
+            {/* <div className="col-md-6 mb-3">
               <label className="form-label">Show End Date</label>
               <DatePicker
                 selected={formData.showEndDate}
@@ -202,7 +202,7 @@ const AddShows = () => {
                 dateFormat="yyyy-MM-dd"
               />
               {errors.showEndDate && <div className="invalid-feedback">{errors.showEndDate}</div>}
-            </div>
+            </div> */}
           </div>
 
 

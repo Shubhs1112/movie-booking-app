@@ -19,7 +19,7 @@ const CurrentShows = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await fetch(`https://localhost:7276/api/Admin/current-shows`);
+                const response = await fetch(`http://localhost:8180/management/Admin/current-shows`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch movies");
                 }

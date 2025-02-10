@@ -21,7 +21,7 @@ const SelectSeat = () => {
         const fetchSeats = async () => {
             try {
                 console.log(`Fetching seats for showId: ${showId}`);
-                const response = await fetch(`https://localhost:7042/api/Transaction/show/${showId}`);
+                const response = await fetch(`http://localhost:8180/transaction/Transaction/show/${showId}`);
                 
                 if (!response.ok) {
                     throw new Error('Failed to fetch seats');
