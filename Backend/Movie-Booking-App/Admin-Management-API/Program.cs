@@ -1,4 +1,5 @@
 using Admin_Management_API.Models;
+using Steeltoe.Discovery.Client;
 using System.Text.Json.Serialization;
 
 namespace Admin_Management_API
@@ -33,6 +34,8 @@ namespace Admin_Management_API
             builder.Services.AddCors(policybuilder => policybuilder.AddDefaultPolicy(policy =>
             policy.WithOrigins("*").AllowAnyHeader().AllowAnyHeader()));
 
+            builder.Services.AddDiscoveryClient(builder.Configuration);
+            
 
             var app = builder.Build();
 
@@ -43,13 +46,17 @@ namespace Admin_Management_API
                 app.UseSwaggerUI();
             }
 
+            // Use Steeltoe Discovery Client
+            app.UseDiscoveryClient();
+
             // Middlewares
-            app.UseHttpsRedirection();
-            app.UseCors("AllowAll");
+            //app.UseHttpsRedirection();
+            //app.UseCors("AllowAll");
             app.UseStaticFiles();         // Enable serving static files
             app.UseRouting();
             app.UseAuthorization();
-            app.MapControllers();         // Maps API endpoints
+            app.MapControllers();  
+            // Maps API endpoints
 
             app.Run();
         }

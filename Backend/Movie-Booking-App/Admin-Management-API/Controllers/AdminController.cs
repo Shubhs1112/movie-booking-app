@@ -5,7 +5,7 @@ using Admin_Management_API.Models.Admin_Management_API.Models;
 
 namespace Admin_Management_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("management/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -373,8 +373,7 @@ namespace Admin_Management_API.Controllers
             return Ok(reviews);
         }
 
-
-        // GET revies by ID {movieId}
+        // GET reviews by ID {movieId}
         [HttpGet("GetReviewsByMovieId/{movieId}")]
         public async Task<ActionResult<IEnumerable<object>>> GetReviewsByMovieId(int movieId)
         {
@@ -406,6 +405,7 @@ namespace Admin_Management_API.Controllers
             return Ok(reviews);
         }
 
+        
         //Get Movie by ID - required for movie name in Reviews 
         [HttpGet("movies/{id}")]
         public async Task<IActionResult> GetMovie(int id)
@@ -435,7 +435,55 @@ namespace Admin_Management_API.Controllers
             });
         }
 
-        //Get Shows by MovieID
+        //Add review
+        [HttpPost("reviews/add")]
+        public async Task<ActionResult> AddReview(ReviewDto reviewDto)
+        {
+            // Validate required fields
+            if (reviewDto.MovieId <= 0 || reviewDto.UserId <= 0 || reviewDto.Rating < 1 || reviewDto.Rating > 5)
+            {
+                return BadRequest(new { Message = "Invalid data. Ensure MovieId, UserId, and Rating (1-5) are valid." });
+            }
+
+            // Check if the movie exists
+            var movieExists = await _context.Movies.AnyAsync(m => m.MovieId == reviewDto.MovieId);
+            if (!movieExists)
+            {
+                return NotFound(new { Message = "Movie not found." });
+            }
+
+            // Check if the user exists
+            var userExists = await _context.Users.AnyAsync(u => u.UserId == reviewDto.UserId);
+            if (!userExists)
+            {
+                return NotFound(new { Message = "User not found." });
+            }
+
+            try
+            {
+                // Create a new Review entity from DTO
+                var review = new Review
+                {
+                    ReviewMsg = reviewDto.ReviewMsg,
+                    Rating = reviewDto.Rating,
+                    MovieId = reviewDto.MovieId,
+                    UserId = reviewDto.UserId
+                };
+
+                // Save to database
+                _context.Reviews.Add(review);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Message = "Review added successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while adding the review.", Error = ex.Message });
+            }
+        }
+
+
+        //Get Shows by MovieID 
         [HttpGet("current-shows/{movieId}")]
         public async Task<IActionResult> GetShowsByMovieId(int movieId)
         {
@@ -478,6 +526,37 @@ namespace Admin_Management_API.Controllers
 
             return Ok(shows);
         }
+
+        // Report Generation
+        [HttpGet("reports/detailed-shows")]
+        public async Task<ActionResult<IEnumerable<DetailedShowReport>>> GetDetailedShowReport()
+        {
+            var report = await _context.Bookings
+                .GroupBy(b => b.ShowId)
+                .Select(g => new DetailedShowReport
+                {
+                    ShowId = g.Key,
+                    ShowDate = g.FirstOrDefault().Show.ShowDate,
+                    ShowTime = g.FirstOrDefault().Show.ShowTime,
+                    MovieName = g.FirstOrDefault().Show.Movie.MovieName,
+                    ScreenNumber = g.FirstOrDefault().Show.Screen.ScreenNumber,
+                    TotalBookings = g.Count(),
+                    TotalAmount = g.Sum(b => b.BookingAmount),
+                    BookedUsers = g.Select(b => new UserReport
+                    {
+                        UserId = b.User.UserId,
+                        Username = b.User.Username,
+                        Email = b.User.Email,
+                        Phone = b.User.Phone
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(report);
+        }
+
+
+
 
 
 
@@ -535,36 +614,9 @@ namespace Admin_Management_API.Controllers
             return NoContent();
         }
 
-        // Seat Management
+       
 
-        [HttpGet("seats")]
-        public async Task<ActionResult<IEnumerable<Seat>>> GetSeats()
-        {
-            return await _context.Seats.Include(s => s.Screen).ToListAsync();
-        }
-
-        [HttpPost("seats")]
-        public async Task<ActionResult<Seat>> PostSeat(Seat seat)
-        {
-            _context.Seats.Add(seat);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetSeats), new { id = seat.SeatId }, seat);
-        }
-
-        [HttpDelete("seats/{id}")]
-        public async Task<IActionResult> DeleteSeat(int id)
-        {
-            var seat = await _context.Seats.FindAsync(id);
-            if (seat == null)
-            {
-                return NotFound();
-            }
-
-            _context.Seats.Remove(seat);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
+  
 
         // User Management
 
@@ -634,22 +686,7 @@ namespace Admin_Management_API.Controllers
             return NoContent();
         }
 
-        // Report Generation
-
-        [HttpGet("reports/bookings")]
-        public async Task<ActionResult<IEnumerable<BookingReport>>> GetBookingReport()
-        {
-            var report = await _context.Bookings
-                .GroupBy(b => b.ShowId)
-                .Select(g => new BookingReport
-                {
-                    ShowId = g.Key,
-                    TotalBookings = g.Count(),
-                    TotalAmount = g.Sum(b => b.BookingAmount)
-                }).ToListAsync();
-
-            return Ok(report);
-        }
+       
 
         private bool MovieExists(int id) => _context.Movies.Any(e => e.MovieId == id);
         private bool ShowExists(int id) => _context.Shows.Any(e => e.ShowId == id);
