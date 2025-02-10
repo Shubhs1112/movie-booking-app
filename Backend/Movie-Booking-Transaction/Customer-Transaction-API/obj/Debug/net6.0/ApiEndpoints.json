@@ -2,7 +2,7 @@
   {
     "ContainingType": "Customer_Transaction_API.Controllers.TransactionController",
     "Method": "BookShow",
-    "RelativePath": "api/Transaction/book-show/{showId}",
+    "RelativePath": "transaction/Transaction/book-show/{showId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -23,7 +23,7 @@
   {
     "ContainingType": "Customer_Transaction_API.Controllers.TransactionController",
     "Method": "GetBookingsByUsername",
-    "RelativePath": "api/Transaction/bookings/user/{username}",
+    "RelativePath": "transaction/Transaction/bookings/user/{username}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -49,7 +49,7 @@
   {
     "ContainingType": "Customer_Transaction_API.Controllers.TransactionController",
     "Method": "GetShowById",
-    "RelativePath": "api/Transaction/show/{showId}",
+    "RelativePath": "transaction/Transaction/show/{showId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -75,7 +75,7 @@
   {
     "ContainingType": "UserController",
     "Method": "GetUserByUsername",
-    "RelativePath": "api/User/by-username/{username}",
+    "RelativePath": "transaction/User/by-username/{username}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

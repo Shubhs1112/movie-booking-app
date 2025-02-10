@@ -1,5 +1,6 @@
 
 using Customer_Transaction_API.Models;
+using Steeltoe.Discovery.Client;
 using System.Text.Json.Serialization;
 
 namespace Customer_Transaction_API
@@ -29,6 +30,8 @@ namespace Customer_Transaction_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<P18MoviebookingsystemContext>();
+            builder.Services.AddDiscoveryClient(builder.Configuration);
+            
 
             var app = builder.Build();
 
@@ -40,8 +43,8 @@ namespace Customer_Transaction_API
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
-            app.UseCors("AllowAll");
+            app.UseDiscoveryClient();
+            //app.UseCors("AllowAll");
             app.UseAuthorization();
 
 

@@ -1,5 +1,4 @@
 package com.bookkaro.Book.Karo.Movie.Booking.App.controller;
-
 import com.bookkaro.Book.Karo.Movie.Booking.App.Models.LoginRequest;
 import com.bookkaro.Book.Karo.Movie.Booking.App.Models.RegisterRequest;
 import com.bookkaro.Book.Karo.Movie.Booking.App.Models.UpdateUserRequest;
@@ -17,7 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/auth") 
 public class UserController {
 
 	@Autowired

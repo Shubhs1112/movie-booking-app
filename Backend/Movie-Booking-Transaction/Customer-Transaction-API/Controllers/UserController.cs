@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Customer_Transaction_API.Models;
 
-[Route("api/[controller]")]
+[Route("transaction/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
 {

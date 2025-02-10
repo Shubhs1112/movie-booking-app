@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Customer_Transaction_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("transaction/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
     {
